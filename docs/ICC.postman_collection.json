@@ -1,0 +1,2927 @@
+{
+  "info": {
+    "name": "ICC — API КП 3–12",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Полный справочник запросов. Примеры ответов — схемы, не журнал запуска. Login сохраняет token. Выберите PNG в Body/form-data. Установите ID своих тестовых объектов."
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "maker_id",
+      "value": "1"
+    },
+    {
+      "key": "asset_id",
+      "value": "1"
+    },
+    {
+      "key": "character_id",
+      "value": "1"
+    },
+    {
+      "key": "post_id",
+      "value": "1"
+    },
+    {
+      "key": "comment_id",
+      "value": "1"
+    },
+    {
+      "key": "user_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "GET /api/admin/makers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/admin/makers",
+        "description": "Список для модерации. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/makers",
+            "description": "Список для модерации. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"user_id\": 2,\n      \"title\": \"Лунный путешественник\",\n      \"description\": \"Набор PNG 512×512\",\n      \"status\": \"approved\",\n      \"creator\": {\n        \"id\": 2,\n        \"name\": \"Креатор ICC\"\n      },\n      \"submitted_at\": \"2026-11-11T00:00:00Z\",\n      \"reviewed_at\": \"2026-11-11T00:00:00Z\",\n      \"created_at\": \"2026-11-11T00:00:00Z\",\n      \"updated_at\": \"2026-11-11T00:00:00Z\"\n    }\n  ],\n  \"links\": {\n    \"first\": \"http://127.0.0.1:8000/api/admin/makers?page=1\",\n    \"last\": \"http://127.0.0.1:8000/api/admin/makers?page=1\",\n    \"prev\": null,\n    \"next\": null\n  },\n  \"meta\": {\n    \"current_page\": 1,\n    \"last_page\": 1,\n    \"per_page\": 20,\n    \"total\": 1\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/makers",
+            "description": "Список для модерации. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "POST /api/admin/makers/{maker}/hide",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/admin/makers/{{maker_id}}/hide",
+        "description": "Скрытие. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/makers/{{maker_id}}/hide",
+            "description": "Скрытие. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"user_id\": 2,\n    \"title\": \"Лунный путешественник\",\n    \"description\": \"Набор PNG 512×512\",\n    \"status\": \"approved\",\n    \"creator\": {\n      \"id\": 2,\n      \"name\": \"Креатор ICC\"\n    },\n    \"submitted_at\": \"2026-11-11T00:00:00Z\",\n    \"reviewed_at\": \"2026-11-11T00:00:00Z\",\n    \"created_at\": \"2026-11-11T00:00:00Z\",\n    \"updated_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/makers/{{maker_id}}/hide",
+            "description": "Скрытие. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "POST /api/admin/makers/{maker}/review",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/admin/makers/{{maker_id}}/review",
+        "description": "Решение администратора. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"decision\": \"request-revision\",\n  \"review_comment\": \"Добавьте вариант причёски.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/makers/{{maker_id}}/review",
+            "description": "Решение администратора. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"decision\": \"request-revision\",\n  \"review_comment\": \"Добавьте вариант причёски.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"user_id\": 2,\n    \"title\": \"Лунный путешественник\",\n    \"description\": \"Набор PNG 512×512\",\n    \"status\": \"approved\",\n    \"creator\": {\n      \"id\": 2,\n      \"name\": \"Креатор ICC\"\n    },\n    \"submitted_at\": \"2026-11-11T00:00:00Z\",\n    \"reviewed_at\": \"2026-11-11T00:00:00Z\",\n    \"created_at\": \"2026-11-11T00:00:00Z\",\n    \"updated_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/makers/{{maker_id}}/review",
+            "description": "Решение администратора. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"decision\": \"request-revision\",\n  \"review_comment\": \"Добавьте вариант причёски.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "GET /api/admin/posts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/admin/posts",
+        "description": "Список для модерации. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/posts",
+            "description": "Список для модерации. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"user_id\": 3,\n      \"character_id\": 1,\n      \"title\": \"Моя работа\",\n      \"is_visible\": true,\n      \"image_url\": \"http://127.0.0.1:8000/api/posts/1/image\",\n      \"author\": {\n        \"id\": 3,\n        \"name\": \"Пользователь ICC\"\n      },\n      \"likes_count\": 1,\n      \"comments_count\": 1,\n      \"comments\": [\n        {\n          \"id\": 1,\n          \"user_id\": 3,\n          \"post_id\": 1,\n          \"body\": \"Отличный образ!\",\n          \"author\": {\n            \"id\": 3,\n            \"name\": \"Пользователь ICC\"\n          },\n          \"created_at\": \"2026-11-11T00:00:00Z\"\n        }\n      ],\n      \"created_at\": \"2026-11-11T00:00:00Z\"\n    }\n  ],\n  \"links\": {\n    \"first\": \"http://127.0.0.1:8000/api/admin/posts?page=1\",\n    \"last\": \"http://127.0.0.1:8000/api/admin/posts?page=1\",\n    \"prev\": null,\n    \"next\": null\n  },\n  \"meta\": {\n    \"current_page\": 1,\n    \"last_page\": 1,\n    \"per_page\": 20,\n    \"total\": 1\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/posts",
+            "description": "Список для модерации. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "POST /api/admin/posts/{post}/hide",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/admin/posts/{{post_id}}/hide",
+        "description": "Скрытие. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/posts/{{post_id}}/hide",
+            "description": "Скрытие. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"user_id\": 3,\n    \"character_id\": 1,\n    \"title\": \"Моя работа\",\n    \"is_visible\": true,\n    \"image_url\": \"http://127.0.0.1:8000/api/posts/1/image\",\n    \"author\": {\n      \"id\": 3,\n      \"name\": \"Пользователь ICC\"\n    },\n    \"likes_count\": 1,\n    \"comments_count\": 1,\n    \"comments\": [\n      {\n        \"id\": 1,\n        \"user_id\": 3,\n        \"post_id\": 1,\n        \"body\": \"Отличный образ!\",\n        \"author\": {\n          \"id\": 3,\n          \"name\": \"Пользователь ICC\"\n        },\n        \"created_at\": \"2026-11-11T00:00:00Z\"\n      }\n    ],\n    \"created_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/posts/{{post_id}}/hide",
+            "description": "Скрытие. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "GET /api/admin/statistics",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/admin/statistics",
+        "description": "Агрегированная статистика. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/statistics",
+            "description": "Агрегированная статистика. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"makers_by_status\": {\n      \"approved\": 6,\n      \"pending\": 2,\n      \"revision\": 1,\n      \"draft\": 1\n    },\n    \"users\": 10,\n    \"posts\": 10,\n    \"characters\": 10\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/statistics",
+            "description": "Агрегированная статистика. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "GET /api/admin/users",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/admin/users",
+        "description": "Список. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/users",
+            "description": "Список. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": [\n    {\n      \"id\": 2,\n      \"name\": \"Креатор ICC\",\n      \"email\": \"creator@icc.test\",\n      \"role\": \"creator\",\n      \"is_blocked\": false,\n      \"created_at\": \"2026-11-11T00:00:00Z\"\n    }\n  ],\n  \"links\": {\n    \"first\": \"http://127.0.0.1:8000/api/admin/users?page=1\",\n    \"last\": \"http://127.0.0.1:8000/api/admin/users?page=1\",\n    \"prev\": null,\n    \"next\": null\n  },\n  \"meta\": {\n    \"current_page\": 1,\n    \"last_page\": 1,\n    \"per_page\": 20,\n    \"total\": 1\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/users",
+            "description": "Список. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "PATCH /api/admin/users/{user}",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/admin/users/{{user_id}}",
+        "description": "Изменение. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"role\": \"creator\",\n  \"is_blocked\": false\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/users/{{user_id}}",
+            "description": "Изменение. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"creator\",\n  \"is_blocked\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 2,\n    \"name\": \"Креатор ICC\",\n    \"email\": \"creator@icc.test\",\n    \"role\": \"creator\",\n    \"is_blocked\": false,\n    \"created_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/admin/users/{{user_id}}",
+            "description": "Изменение. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"creator\",\n  \"is_blocked\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "GET /api/assets/{asset}/image",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/assets/{{asset_id}}/image",
+        "description": "PNG с проверкой доступа. Доступ: approved всем; приватные автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/assets/{{asset_id}}/image",
+            "description": "PNG с проверкой доступа. Доступ: approved всем; приватные автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "image/png"
+            }
+          ],
+          "body": "<binary PNG>"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/assets/{{asset_id}}/image",
+            "description": "PNG с проверкой доступа. Доступ: approved всем; приватные автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "GET /api/characters",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/characters",
+        "description": "Список. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/characters",
+            "description": "Список. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"user_id\": 3,\n      \"maker_id\": 1,\n      \"name\": \"Мой герой\",\n      \"maker\": {\n        \"id\": 1,\n        \"user_id\": 2,\n        \"title\": \"Лунный путешественник\",\n        \"description\": \"Набор PNG 512×512\",\n        \"status\": \"approved\",\n        \"creator\": {\n          \"id\": 2,\n          \"name\": \"Креатор ICC\"\n        },\n        \"submitted_at\": \"2026-11-11T00:00:00Z\",\n        \"reviewed_at\": \"2026-11-11T00:00:00Z\",\n        \"created_at\": \"2026-11-11T00:00:00Z\",\n        \"updated_at\": \"2026-11-11T00:00:00Z\"\n      },\n      \"assets\": [\n        {\n          \"id\": 1,\n          \"maker_id\": 1,\n          \"name\": \"Основа\",\n          \"category\": \"body\",\n          \"layer_order\": 10,\n          \"is_active\": true,\n          \"image_url\": \"http://127.0.0.1:8000/api/assets/1/image\",\n          \"selected_layer_order\": 0\n        }\n      ],\n      \"created_at\": \"2026-11-11T00:00:00Z\",\n      \"updated_at\": \"2026-11-11T00:00:00Z\"\n    }\n  ],\n  \"links\": {\n    \"first\": \"http://127.0.0.1:8000/api/characters?page=1\",\n    \"last\": \"http://127.0.0.1:8000/api/characters?page=1\",\n    \"prev\": null,\n    \"next\": null\n  },\n  \"meta\": {\n    \"current_page\": 1,\n    \"last_page\": 1,\n    \"per_page\": 20,\n    \"total\": 1\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/characters",
+            "description": "Список. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "POST /api/characters",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/characters",
+        "description": "Создание. Доступ: авторизованный; свой объект/admin. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Мой герой\",\n  \"maker_id\": 1,\n  \"asset_ids\": [\n    1,\n    2,\n    3,\n    4,\n    5,\n    6\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/characters",
+            "description": "Создание. Доступ: авторизованный; свой объект/admin. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Мой герой\",\n  \"maker_id\": 1,\n  \"asset_ids\": [\n    1,\n    2,\n    3,\n    4,\n    5,\n    6\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"user_id\": 3,\n    \"maker_id\": 1,\n    \"name\": \"Мой герой\",\n    \"maker\": {\n      \"id\": 1,\n      \"user_id\": 2,\n      \"title\": \"Лунный путешественник\",\n      \"description\": \"Набор PNG 512×512\",\n      \"status\": \"approved\",\n      \"creator\": {\n        \"id\": 2,\n        \"name\": \"Креатор ICC\"\n      },\n      \"submitted_at\": \"2026-11-11T00:00:00Z\",\n      \"reviewed_at\": \"2026-11-11T00:00:00Z\",\n      \"created_at\": \"2026-11-11T00:00:00Z\",\n      \"updated_at\": \"2026-11-11T00:00:00Z\"\n    },\n    \"assets\": [\n      {\n        \"id\": 1,\n        \"maker_id\": 1,\n        \"name\": \"Основа\",\n        \"category\": \"body\",\n        \"layer_order\": 10,\n        \"is_active\": true,\n        \"image_url\": \"http://127.0.0.1:8000/api/assets/1/image\",\n        \"selected_layer_order\": 0\n      }\n    ],\n    \"created_at\": \"2026-11-11T00:00:00Z\",\n    \"updated_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/characters",
+            "description": "Создание. Доступ: авторизованный; свой объект/admin. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Мой герой\",\n  \"maker_id\": 1,\n  \"asset_ids\": [\n    1,\n    2,\n    3,\n    4,\n    5,\n    6\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "GET /api/characters/{character}",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/characters/{{character_id}}",
+        "description": "Карточка. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/characters/{{character_id}}",
+            "description": "Карточка. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"user_id\": 3,\n    \"maker_id\": 1,\n    \"name\": \"Мой герой\",\n    \"maker\": {\n      \"id\": 1,\n      \"user_id\": 2,\n      \"title\": \"Лунный путешественник\",\n      \"description\": \"Набор PNG 512×512\",\n      \"status\": \"approved\",\n      \"creator\": {\n        \"id\": 2,\n        \"name\": \"Креатор ICC\"\n      },\n      \"submitted_at\": \"2026-11-11T00:00:00Z\",\n      \"reviewed_at\": \"2026-11-11T00:00:00Z\",\n      \"created_at\": \"2026-11-11T00:00:00Z\",\n      \"updated_at\": \"2026-11-11T00:00:00Z\"\n    },\n    \"assets\": [\n      {\n        \"id\": 1,\n        \"maker_id\": 1,\n        \"name\": \"Основа\",\n        \"category\": \"body\",\n        \"layer_order\": 10,\n        \"is_active\": true,\n        \"image_url\": \"http://127.0.0.1:8000/api/assets/1/image\",\n        \"selected_layer_order\": 0\n      }\n    ],\n    \"created_at\": \"2026-11-11T00:00:00Z\",\n    \"updated_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/characters/{{character_id}}",
+            "description": "Карточка. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "PUT /api/characters/{character}",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/characters/{{character_id}}",
+        "description": "Изменение. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Мой герой\",\n  \"maker_id\": 1,\n  \"asset_ids\": [\n    1,\n    2,\n    3,\n    4,\n    5,\n    6\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/characters/{{character_id}}",
+            "description": "Изменение. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Мой герой\",\n  \"maker_id\": 1,\n  \"asset_ids\": [\n    1,\n    2,\n    3,\n    4,\n    5,\n    6\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"user_id\": 3,\n    \"maker_id\": 1,\n    \"name\": \"Мой герой\",\n    \"maker\": {\n      \"id\": 1,\n      \"user_id\": 2,\n      \"title\": \"Лунный путешественник\",\n      \"description\": \"Набор PNG 512×512\",\n      \"status\": \"approved\",\n      \"creator\": {\n        \"id\": 2,\n        \"name\": \"Креатор ICC\"\n      },\n      \"submitted_at\": \"2026-11-11T00:00:00Z\",\n      \"reviewed_at\": \"2026-11-11T00:00:00Z\",\n      \"created_at\": \"2026-11-11T00:00:00Z\",\n      \"updated_at\": \"2026-11-11T00:00:00Z\"\n    },\n    \"assets\": [\n      {\n        \"id\": 1,\n        \"maker_id\": 1,\n        \"name\": \"Основа\",\n        \"category\": \"body\",\n        \"layer_order\": 10,\n        \"is_active\": true,\n        \"image_url\": \"http://127.0.0.1:8000/api/assets/1/image\",\n        \"selected_layer_order\": 0\n      }\n    ],\n    \"created_at\": \"2026-11-11T00:00:00Z\",\n    \"updated_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/characters/{{character_id}}",
+            "description": "Изменение. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Мой герой\",\n  \"maker_id\": 1,\n  \"asset_ids\": [\n    1,\n    2,\n    3,\n    4,\n    5,\n    6\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "DELETE /api/characters/{character}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/characters/{{character_id}}",
+        "description": "Удаление. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/characters/{{character_id}}",
+            "description": "Удаление. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": ""
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/characters/{{character_id}}",
+            "description": "Удаление. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "DELETE /api/comments/{comment}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/comments/{{comment_id}}",
+        "description": "Удаление. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/comments/{{comment_id}}",
+            "description": "Удаление. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": ""
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/comments/{{comment_id}}",
+            "description": "Удаление. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "GET /api/health",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/health",
+        "description": "Проверка приложения и БД. Доступ: гость. Успех 200. Ошибки 401,403,404,409,422,429,500,503. message для ошибок, errors для 422.",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/health",
+            "description": "Проверка приложения и БД. Доступ: гость. Успех 200. Ошибки 401,403,404,409,422,429,500,503. message для ошибок, errors для 422.",
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"app\": \"ICC\",\n  \"time\": \"2026-11-11T00:00:00+00:00\",\n  \"database\": \"ok\"\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/health",
+            "description": "Проверка приложения и БД. Доступ: гость. Успех 200. Ошибки 401,403,404,409,422,429,500,503. message для ошибок, errors для 422.",
+            "auth": {
+              "type": "noauth"
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "POST /api/login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/login",
+        "description": "Вход и токен. Доступ: гость. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+        "auth": {
+          "type": "noauth"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"creator@icc.test\",\n  \"password\": \"DemoPass123!\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/login",
+            "description": "Вход и токен. Доступ: гость. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"creator@icc.test\",\n  \"password\": \"DemoPass123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"user\": {\n    \"id\": 2,\n    \"name\": \"Креатор ICC\",\n    \"email\": \"creator@icc.test\",\n    \"role\": \"creator\",\n    \"is_blocked\": false\n  },\n  \"token\": \"<токен>\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 86400\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/login",
+            "description": "Вход и токен. Доступ: гость. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"creator@icc.test\",\n  \"password\": \"DemoPass123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (pm.response.code >= 200 && pm.response.code < 300) { pm.collectionVariables.set('token', pm.response.json().token); }"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "POST /api/logout",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/logout",
+        "description": "Отзыв токена. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/logout",
+            "description": "Отзыв токена. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": ""
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/logout",
+            "description": "Отзыв токена. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "GET /api/makers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/makers",
+        "description": "Список. Доступ: approved всем; приватные автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers",
+            "description": "Список. Доступ: approved всем; приватные автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"user_id\": 2,\n      \"title\": \"Лунный путешественник\",\n      \"description\": \"Набор PNG 512×512\",\n      \"status\": \"approved\",\n      \"creator\": {\n        \"id\": 2,\n        \"name\": \"Креатор ICC\"\n      },\n      \"submitted_at\": \"2026-11-11T00:00:00Z\",\n      \"reviewed_at\": \"2026-11-11T00:00:00Z\",\n      \"created_at\": \"2026-11-11T00:00:00Z\",\n      \"updated_at\": \"2026-11-11T00:00:00Z\"\n    }\n  ],\n  \"links\": {\n    \"first\": \"http://127.0.0.1:8000/api/makers?page=1\",\n    \"last\": \"http://127.0.0.1:8000/api/makers?page=1\",\n    \"prev\": null,\n    \"next\": null\n  },\n  \"meta\": {\n    \"current_page\": 1,\n    \"last_page\": 1,\n    \"per_page\": 20,\n    \"total\": 1\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers",
+            "description": "Список. Доступ: approved всем; приватные автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "POST /api/makers",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/makers",
+        "description": "Создание. Доступ: creator/admin; владелец. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Новый мейкер\",\n  \"description\": \"Прозрачные PNG 512×512.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers",
+            "description": "Создание. Доступ: creator/admin; владелец. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Новый мейкер\",\n  \"description\": \"Прозрачные PNG 512×512.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"user_id\": 2,\n    \"title\": \"Лунный путешественник\",\n    \"description\": \"Набор PNG 512×512\",\n    \"status\": \"approved\",\n    \"creator\": {\n      \"id\": 2,\n      \"name\": \"Креатор ICC\"\n    },\n    \"submitted_at\": \"2026-11-11T00:00:00Z\",\n    \"reviewed_at\": \"2026-11-11T00:00:00Z\",\n    \"created_at\": \"2026-11-11T00:00:00Z\",\n    \"updated_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers",
+            "description": "Создание. Доступ: creator/admin; владелец. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Новый мейкер\",\n  \"description\": \"Прозрачные PNG 512×512.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "GET /api/makers/{maker}",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/makers/{{maker_id}}",
+        "description": "Карточка. Доступ: approved всем; приватные автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}",
+            "description": "Карточка. Доступ: approved всем; приватные автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"user_id\": 2,\n    \"title\": \"Лунный путешественник\",\n    \"description\": \"Набор PNG 512×512\",\n    \"status\": \"approved\",\n    \"creator\": {\n      \"id\": 2,\n      \"name\": \"Креатор ICC\"\n    },\n    \"submitted_at\": \"2026-11-11T00:00:00Z\",\n    \"reviewed_at\": \"2026-11-11T00:00:00Z\",\n    \"created_at\": \"2026-11-11T00:00:00Z\",\n    \"updated_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}",
+            "description": "Карточка. Доступ: approved всем; приватные автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "PUT /api/makers/{maker}",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/makers/{{maker_id}}",
+        "description": "Изменение. Доступ: creator/admin; владелец. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Новый мейкер\",\n  \"description\": \"Прозрачные PNG 512×512.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}",
+            "description": "Изменение. Доступ: creator/admin; владелец. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Новый мейкер\",\n  \"description\": \"Прозрачные PNG 512×512.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"user_id\": 2,\n    \"title\": \"Лунный путешественник\",\n    \"description\": \"Набор PNG 512×512\",\n    \"status\": \"approved\",\n    \"creator\": {\n      \"id\": 2,\n      \"name\": \"Креатор ICC\"\n    },\n    \"submitted_at\": \"2026-11-11T00:00:00Z\",\n    \"reviewed_at\": \"2026-11-11T00:00:00Z\",\n    \"created_at\": \"2026-11-11T00:00:00Z\",\n    \"updated_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}",
+            "description": "Изменение. Доступ: creator/admin; владелец. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Новый мейкер\",\n  \"description\": \"Прозрачные PNG 512×512.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "DELETE /api/makers/{maker}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/makers/{{maker_id}}",
+        "description": "Удаление. Доступ: creator/admin; владелец. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}",
+            "description": "Удаление. Доступ: creator/admin; владелец. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": ""
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}",
+            "description": "Удаление. Доступ: creator/admin; владелец. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "POST /api/makers/{maker}/assets",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/makers/{{maker_id}}/assets",
+        "description": "Создание. Доступ: creator/admin; владелец. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "type": "text",
+              "value": "Основа"
+            },
+            {
+              "key": "category",
+              "type": "text",
+              "value": "body"
+            },
+            {
+              "key": "layer_order",
+              "type": "text",
+              "value": "10"
+            },
+            {
+              "key": "image",
+              "type": "file",
+              "src": [],
+              "description": "PNG до 5 МБ, 16–2048 px"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}/assets",
+            "description": "Создание. Доступ: creator/admin; владелец. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "type": "text",
+                  "value": "Основа"
+                },
+                {
+                  "key": "category",
+                  "type": "text",
+                  "value": "body"
+                },
+                {
+                  "key": "layer_order",
+                  "type": "text",
+                  "value": "10"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": [],
+                  "description": "PNG до 5 МБ, 16–2048 px"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"maker_id\": 1,\n    \"name\": \"Основа\",\n    \"category\": \"body\",\n    \"layer_order\": 10,\n    \"is_active\": true,\n    \"image_url\": \"http://127.0.0.1:8000/api/assets/1/image\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}/assets",
+            "description": "Создание. Доступ: creator/admin; владелец. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "type": "text",
+                  "value": "Основа"
+                },
+                {
+                  "key": "category",
+                  "type": "text",
+                  "value": "body"
+                },
+                {
+                  "key": "layer_order",
+                  "type": "text",
+                  "value": "10"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": [],
+                  "description": "PNG до 5 МБ, 16–2048 px"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "PUT /api/makers/{maker}/assets/{asset}",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/makers/{{maker_id}}/assets/{{asset_id}}",
+        "description": "Изменение. Доступ: creator/admin; владелец. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Основа\",\n  \"category\": \"body\",\n  \"layer_order\": 10\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}/assets/{{asset_id}}",
+            "description": "Изменение. Доступ: creator/admin; владелец. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Основа\",\n  \"category\": \"body\",\n  \"layer_order\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"maker_id\": 1,\n    \"name\": \"Основа\",\n    \"category\": \"body\",\n    \"layer_order\": 10,\n    \"is_active\": true,\n    \"image_url\": \"http://127.0.0.1:8000/api/assets/1/image\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}/assets/{{asset_id}}",
+            "description": "Изменение. Доступ: creator/admin; владелец. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Основа\",\n  \"category\": \"body\",\n  \"layer_order\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "DELETE /api/makers/{maker}/assets/{asset}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/makers/{{maker_id}}/assets/{{asset_id}}",
+        "description": "Удаление. Доступ: creator/admin; владелец. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}/assets/{{asset_id}}",
+            "description": "Удаление. Доступ: creator/admin; владелец. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": ""
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}/assets/{{asset_id}}",
+            "description": "Удаление. Доступ: creator/admin; владелец. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "POST /api/makers/{maker}/submit",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/makers/{{maker_id}}/submit",
+        "description": "Отправить на модерацию. Доступ: creator/admin; владелец. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}/submit",
+            "description": "Отправить на модерацию. Доступ: creator/admin; владелец. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"user_id\": 2,\n    \"title\": \"Лунный путешественник\",\n    \"description\": \"Набор PNG 512×512\",\n    \"status\": \"approved\",\n    \"creator\": {\n      \"id\": 2,\n      \"name\": \"Креатор ICC\"\n    },\n    \"submitted_at\": \"2026-11-11T00:00:00Z\",\n    \"reviewed_at\": \"2026-11-11T00:00:00Z\",\n    \"created_at\": \"2026-11-11T00:00:00Z\",\n    \"updated_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/makers/{{maker_id}}/submit",
+            "description": "Отправить на модерацию. Доступ: creator/admin; владелец. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "GET /api/posts",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/posts",
+        "description": "Список. Доступ: видимые всем; скрытые автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts",
+            "description": "Список. Доступ: видимые всем; скрытые автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": [\n    {\n      \"id\": 1,\n      \"user_id\": 3,\n      \"character_id\": 1,\n      \"title\": \"Моя работа\",\n      \"is_visible\": true,\n      \"image_url\": \"http://127.0.0.1:8000/api/posts/1/image\",\n      \"author\": {\n        \"id\": 3,\n        \"name\": \"Пользователь ICC\"\n      },\n      \"likes_count\": 1,\n      \"comments_count\": 1,\n      \"comments\": [\n        {\n          \"id\": 1,\n          \"user_id\": 3,\n          \"post_id\": 1,\n          \"body\": \"Отличный образ!\",\n          \"author\": {\n            \"id\": 3,\n            \"name\": \"Пользователь ICC\"\n          },\n          \"created_at\": \"2026-11-11T00:00:00Z\"\n        }\n      ],\n      \"created_at\": \"2026-11-11T00:00:00Z\"\n    }\n  ],\n  \"links\": {\n    \"first\": \"http://127.0.0.1:8000/api/posts?page=1\",\n    \"last\": \"http://127.0.0.1:8000/api/posts?page=1\",\n    \"prev\": null,\n    \"next\": null\n  },\n  \"meta\": {\n    \"current_page\": 1,\n    \"last_page\": 1,\n    \"per_page\": 20,\n    \"total\": 1\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts",
+            "description": "Список. Доступ: видимые всем; скрытые автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "POST /api/posts",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/posts",
+        "description": "Создание. Доступ: авторизованный; свой объект/admin. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "title",
+              "type": "text",
+              "value": "Мой герой"
+            },
+            {
+              "key": "image",
+              "type": "file",
+              "src": [],
+              "description": "PNG до 5 МБ, 16–2048 px"
+            },
+            {
+              "key": "character_id",
+              "type": "text",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts",
+            "description": "Создание. Доступ: авторизованный; свой объект/admin. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "type": "text",
+                  "value": "Мой герой"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": [],
+                  "description": "PNG до 5 МБ, 16–2048 px"
+                },
+                {
+                  "key": "character_id",
+                  "type": "text",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"user_id\": 3,\n    \"character_id\": 1,\n    \"title\": \"Моя работа\",\n    \"is_visible\": true,\n    \"image_url\": \"http://127.0.0.1:8000/api/posts/1/image\",\n    \"author\": {\n      \"id\": 3,\n      \"name\": \"Пользователь ICC\"\n    },\n    \"likes_count\": 1,\n    \"comments_count\": 1,\n    \"comments\": [\n      {\n        \"id\": 1,\n        \"user_id\": 3,\n        \"post_id\": 1,\n        \"body\": \"Отличный образ!\",\n        \"author\": {\n          \"id\": 3,\n          \"name\": \"Пользователь ICC\"\n        },\n        \"created_at\": \"2026-11-11T00:00:00Z\"\n      }\n    ],\n    \"created_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts",
+            "description": "Создание. Доступ: авторизованный; свой объект/admin. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "type": "text",
+                  "value": "Мой герой"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": [],
+                  "description": "PNG до 5 МБ, 16–2048 px"
+                },
+                {
+                  "key": "character_id",
+                  "type": "text",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "GET /api/posts/{post}",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/posts/{{post_id}}",
+        "description": "Карточка. Доступ: видимые всем; скрытые автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts/{{post_id}}",
+            "description": "Карточка. Доступ: видимые всем; скрытые автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"user_id\": 3,\n    \"character_id\": 1,\n    \"title\": \"Моя работа\",\n    \"is_visible\": true,\n    \"image_url\": \"http://127.0.0.1:8000/api/posts/1/image\",\n    \"author\": {\n      \"id\": 3,\n      \"name\": \"Пользователь ICC\"\n    },\n    \"likes_count\": 1,\n    \"comments_count\": 1,\n    \"comments\": [\n      {\n        \"id\": 1,\n        \"user_id\": 3,\n        \"post_id\": 1,\n        \"body\": \"Отличный образ!\",\n        \"author\": {\n          \"id\": 3,\n          \"name\": \"Пользователь ICC\"\n        },\n        \"created_at\": \"2026-11-11T00:00:00Z\"\n      }\n    ],\n    \"created_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts/{{post_id}}",
+            "description": "Карточка. Доступ: видимые всем; скрытые автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "DELETE /api/posts/{post}",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/posts/{{post_id}}",
+        "description": "Удаление. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts/{{post_id}}",
+            "description": "Удаление. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": ""
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts/{{post_id}}",
+            "description": "Удаление. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "POST /api/posts/{post}/comments",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/posts/{{post_id}}/comments",
+        "description": "Добавление комментария. Доступ: авторизованный; свой объект/admin. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"body\": \"Отличный образ!\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts/{{post_id}}/comments",
+            "description": "Добавление комментария. Доступ: авторизованный; свой объект/admin. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"body\": \"Отличный образ!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 1,\n    \"user_id\": 3,\n    \"post_id\": 1,\n    \"body\": \"Отличный образ!\",\n    \"author\": {\n      \"id\": 3,\n      \"name\": \"Пользователь ICC\"\n    },\n    \"created_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts/{{post_id}}/comments",
+            "description": "Добавление комментария. Доступ: авторизованный; свой объект/admin. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"body\": \"Отличный образ!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "GET /api/posts/{post}/image",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/posts/{{post_id}}/image",
+        "description": "PNG с проверкой доступа. Доступ: видимые всем; скрытые автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts/{{post_id}}/image",
+            "description": "PNG с проверкой доступа. Доступ: видимые всем; скрытые автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "image/png"
+            }
+          ],
+          "body": "<binary PNG>"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts/{{post_id}}/image",
+            "description": "PNG с проверкой доступа. Доступ: видимые всем; скрытые автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "PUT /api/posts/{post}/like",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/posts/{{post_id}}/like",
+        "description": "Поставить лайк. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts/{{post_id}}/like",
+            "description": "Поставить лайк. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"liked\": true,\n    \"likes_count\": 1\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts/{{post_id}}/like",
+            "description": "Поставить лайк. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "DELETE /api/posts/{post}/like",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/posts/{{post_id}}/like",
+        "description": "Снять лайк. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts/{{post_id}}/like",
+            "description": "Снять лайк. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"liked\": false,\n    \"likes_count\": 0\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/posts/{{post_id}}/like",
+            "description": "Снять лайк. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    },
+    {
+      "name": "POST /api/register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/register",
+        "description": "Регистрация. Доступ: гость. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+        "auth": {
+          "type": "noauth"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Новый участник\",\n  \"email\": \"new@icc.test\",\n  \"password\": \"DemoPass123!\",\n  \"password_confirmation\": \"DemoPass123!\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/register",
+            "description": "Регистрация. Доступ: гость. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Новый участник\",\n  \"email\": \"new@icc.test\",\n  \"password\": \"DemoPass123!\",\n  \"password_confirmation\": \"DemoPass123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"user\": {\n    \"id\": 2,\n    \"name\": \"Креатор ICC\",\n    \"email\": \"creator@icc.test\",\n    \"role\": \"creator\",\n    \"is_blocked\": false\n  },\n  \"token\": \"<токен>\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 86400\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/register",
+            "description": "Регистрация. Доступ: гость. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.",
+            "auth": {
+              "type": "noauth"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Новый участник\",\n  \"email\": \"new@icc.test\",\n  \"password\": \"DemoPass123!\",\n  \"password_confirmation\": \"DemoPass123!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (pm.response.code >= 200 && pm.response.code < 300) { pm.collectionVariables.set('token', pm.response.json().token); }"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET /api/user",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/user",
+        "description": "Текущий пользователь. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+      },
+      "response": [
+        {
+          "name": "Пример схемы успешного ответа",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/user",
+            "description": "Текущий пользователь. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"id\": 2,\n    \"name\": \"Креатор ICC\",\n    \"email\": \"creator@icc.test\",\n    \"role\": \"creator\",\n    \"is_blocked\": false,\n    \"created_at\": \"2026-11-11T00:00:00Z\"\n  }\n}"
+        },
+        {
+          "name": "Пример ошибки валидации",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{base_url}}/api/user",
+            "description": "Текущий пользователь. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422."
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\"message\": \"Ошибка валидации\", \"errors\": {\"title\": [\"Поле название обязательно.\"]}}"
+        }
+      ]
+    }
+  ]
+}
