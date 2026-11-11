@@ -1,0 +1,96 @@
+// ICC / MySQL 8.4
+Table users {
+ id bigint [pk, increment, not null]
+ name varchar(255) [not null]
+ email varchar(255) [not null]
+ email_verified_at timestamp
+ password varchar(255) [not null]
+ remember_token varchar(100)
+ created_at timestamp
+ updated_at timestamp
+ role varchar(20) [not null]
+ is_blocked boolean [not null]
+}
+Table makers {
+ id bigint [pk, increment, not null]
+ user_id bigint [not null]
+ reviewed_by bigint
+ title varchar(255) [not null]
+ description text [not null]
+ status varchar(20) [not null]
+ review_comment text
+ submitted_at datetime
+ reviewed_at datetime
+ created_at timestamp
+ updated_at timestamp
+}
+Table assets {
+ id bigint [pk, increment, not null]
+ maker_id bigint [not null]
+ name varchar(255) [not null]
+ category varchar(30) [not null]
+ file_path varchar(255) [not null]
+ layer_order int [not null]
+ is_active boolean [not null]
+ created_at timestamp
+ updated_at timestamp
+}
+Table characters {
+ id bigint [pk, increment, not null]
+ user_id bigint [not null]
+ maker_id bigint [not null]
+ name varchar(255) [not null]
+ created_at timestamp
+ updated_at timestamp
+}
+Table asset_character {
+ asset_id bigint [not null]
+ character_id bigint [not null]
+ layer_order int [not null]
+ created_at timestamp
+ updated_at timestamp
+ indexes {
+  (asset_id, character_id) [pk]
+ }
+}
+Table posts {
+ id bigint [pk, increment, not null]
+ user_id bigint [not null]
+ character_id bigint
+ title varchar(255) [not null]
+ image_path varchar(255) [not null]
+ is_visible boolean [not null]
+ created_at timestamp
+ updated_at timestamp
+}
+Table comments {
+ id bigint [pk, increment, not null]
+ user_id bigint [not null]
+ post_id bigint [not null]
+ body text [not null]
+ created_at timestamp
+ updated_at timestamp
+}
+Table likes {
+ id bigint [pk, increment, not null]
+ user_id bigint [not null]
+ post_id bigint [not null]
+ created_at timestamp
+ updated_at timestamp
+ indexes {
+  (user_id, post_id) [unique]
+ }
+}
+Ref: makers.reviewed_by > users.id
+Ref: makers.user_id > users.id
+Ref: assets.maker_id > makers.id
+Ref: characters.maker_id > makers.id
+Ref: characters.user_id > users.id
+Ref: asset_character.character_id > characters.id
+Ref: asset_character.asset_id > assets.id
+Ref: posts.character_id > characters.id
+Ref: posts.user_id > users.id
+Ref: comments.post_id > posts.id
+Ref: comments.user_id > users.id
+Ref: likes.post_id > posts.id
+Ref: likes.user_id > users.id
