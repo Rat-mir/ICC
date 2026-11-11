@@ -9,7 +9,8 @@ export class ApiError extends Error {
 export async function api(path, options={}) {
   const {method='GET', body, binary=false}=options;
   const headers={Accept: binary ? 'image/png' : 'application/json'};
-  if (session.token) headers.Authorization='Bearer '+session.token;
+  const requestToken=session.token;
+  if (requestToken) headers.Authorization='Bearer '+requestToken;
   const multipart=body instanceof FormData;
   if(body!==undefined && !multipart) headers['Content-Type']='application/json';
   let response;
@@ -18,7 +19,7 @@ export async function api(path, options={}) {
   if(response.status===204) return null;
   if(!response.ok) {
     const payload=await response.json().catch(()=>({message:'Ошибка сервера. Повторите запрос позже.'}));
-    if(response.status===401 && session.token) { session.token=null; window.dispatchEvent(new Event('icc:unauthorized')); location.hash='login'; }
+    if(response.status===401 && requestToken && session.token===requestToken) { session.token=null; window.dispatchEvent(new Event('icc:unauthorized')); location.hash='login'; }
     throw new ApiError(response.status,payload);
   }
   return binary ? response.blob() : response.json();

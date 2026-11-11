@@ -90,10 +90,14 @@ async function builder(id,character=null) {
   async function paint(){const version=++paintVersion,ctx=canvas.getContext('2d');ctx.clearRect(0,0,canvas.width,canvas.height);for(const id of [...selected]){if(!assets.has(id))continue;if(!imageCache.has(id)){const url=await imageBlob(assets.get(id).image_url);objectUrls.push(url);const img=await new Promise((res,rej)=>{const i=new Image;i.onload=()=>res(i);i.onerror=rej;i.src=url;});imageCache.set(id,img);}if(version!==paintVersion)return;const img=imageCache.get(id);if(ctx.canvas.width!==img.width){ctx.canvas.width=img.width;ctx.canvas.height=img.height;}ctx.drawImage(img,0,0);} }
   function order(){const box=$('#layer-order');box.innerHTML=selected.map((id,i)=>'<div class="layer-order"><span>'+esc(assets.get(id)?.name||'Недоступный слой')+'</span><span><button type="button" class="secondary small" data-move="'+i+'" data-delta="-1" aria-label="Выше">↑</button> <button type="button" class="secondary small" data-move="'+i+'" data-delta="1" aria-label="Ниже">↓</button></span></div>').join('');box.querySelectorAll('[data-move]').forEach(b=>b.onclick=()=>{const i=+b.dataset.move,j=i+(+b.dataset.delta);if(j<0||j>=selected.length)return;[selected[i],selected[j]]=[selected[j],selected[i]];order();paint().catch(e=>note(e.message));});}
   app.querySelectorAll('[data-category]').forEach(s=>s.onchange=()=>{selected=selected.filter(id=>assets.get(id)?.category!==s.dataset.category);if(s.value)selected.push(+s.value);order();paint().catch(e=>note(e.message));});
-  order();await paint();
+  order();
   $('#download').onclick=async()=>{await paint();const a=document.createElement('a');a.download='icc-character.png';a.href=canvas.toDataURL('image/png');a.click();};
   form('character-form',async(f,d)=>{const r=await api('/characters'+(character?'/'+character.id:''),{method:character?'PUT':'POST',body:{name:d.get('name'),maker_id:m.id,asset_ids:selected}});note('Персонаж сохранён');location.hash='character/'+r.data.id;});
   form('publish-canvas',async(f,d)=>{await paint();const blob=await new Promise(res=>canvas.toBlob(res,'image/png'));d.set('image',blob,'character.png');if(character)d.set('character_id',character.id);const r=await api('/posts',{method:'POST',body:d});note('Работа опубликована');location.hash='post/'+r.data.id;});
+  $('#download').disabled=true;
+  await paint();
+  canvas.dataset.ready='true';
+  $('#download').disabled=false;
 }
 async function characters(params) {
   if(!user)return denied();const r=await api('/characters?'+params);

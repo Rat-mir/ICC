@@ -1,0 +1,31 @@
+<?php
+// Creates only ICC schemas. It never drops existing application data.
+$root=dirname(__DIR__);
+$host=getenv('ICC_MYSQL_HOST') ?: '127.0.1.31';
+$port=(int)(getenv('ICC_MYSQL_PORT') ?: 3306);
+$admin=getenv('ICC_MYSQL_ADMIN') ?: 'root';
+$adminPassword=getenv('ICC_MYSQL_ADMIN_PASSWORD') ?: '';
+$pdo=new PDO("mysql:host=$host;port=$port;charset=utf8mb4",$admin,$adminPassword,[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]);
+$version=$pdo->query('SELECT VERSION()')->fetchColumn();
+if(!str_starts_with($version,'8.4.')) throw new RuntimeException('MySQL 8.4 required; found '.$version);
+$databases=['icc_backend','icc_backend_test','icc_backend_ddl'];
+foreach($databases as $db) $pdo->exec("CREATE DATABASE IF NOT EXISTS $db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+$current=is_file($root.'/.env')?file_get_contents($root.'/.env'):'';
+preg_match('/^DB_PASSWORD=(.*)$/m',$current,$match);
+$password=(str_contains($current,'DB_USERNAME=icc_app') && !empty($match[1]))?trim($match[1]):bin2hex(random_bytes(20));
+$quoted=$pdo->quote($password);
+$pdo->exec("CREATE USER IF NOT EXISTS 'icc_app'@'localhost' IDENTIFIED BY $quoted");
+$pdo->exec("ALTER USER 'icc_app'@'localhost' IDENTIFIED BY $quoted");
+foreach($databases as $db) $pdo->exec("GRANT ALL PRIVILEGES ON $db.* TO 'icc_app'@'localhost'");
+$check=new PDO("mysql:host=$host;port=$port;dbname=icc_backend;charset=utf8mb4",'icc_app',$password,[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]);
+preg_match('/^APP_KEY=(.*)$/m',$current,$keyMatch);
+$key=trim($keyMatch[1]??'') ?: 'base64:'.base64_encode(random_bytes(32));
+$env=file_get_contents($root.'/.env.example');
+$values=['APP_KEY'=>$key,'DB_CONNECTION'=>'mysql','DB_HOST'=>$host,'DB_PORT'=>$port,'DB_DATABASE'=>'icc_backend','DB_USERNAME'=>'icc_app','DB_PASSWORD'=>$password];
+foreach($values as $key=>$value) $env=preg_replace('/^'.preg_quote($key,'/').'=.*/m',"$key=$value",$env);
+file_put_contents($root.'/.env',$env);
+$test=preg_replace('/^APP_ENV=.*/m','APP_ENV=testing',$env);
+$test=preg_replace('/^DB_DATABASE=.*/m','DB_DATABASE=icc_backend_test',$test);
+file_put_contents($root.'/.env.testing',$test);
+echo "MySQL $version configured: icc_backend / icc_backend_test / icc_backend_ddl\n";
+echo "Credentials stored in local .env and .env.testing; never include these files in Git.\n";

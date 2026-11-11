@@ -1,0 +1,6 @@
+{
+  "php.validate.executablePath": "C:\\OSPanel\\modules\\PHP-8.4\\php.exe",
+  "files.encoding": "utf8",
+  "files.exclude": {"**/.git":true,"**/vendor":true},
+  "search.exclude": {"**/vendor":true,"**/storage":true}
+}

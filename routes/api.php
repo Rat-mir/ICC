@@ -9,6 +9,8 @@ Route::middleware('throttle:login')->group(function() {
 Route::middleware(['optional.auth','throttle:api'])->group(function() {
     Route::apiResource('makers',MakerController::class)->only(['index','show']);
     Route::apiResource('posts',PostController::class)->only(['index','show']);
+});
+Route::middleware(['optional.auth','throttle:media'])->group(function() {
     Route::get('assets/{asset}/image',[AssetController::class,'image'])->name('assets.image');
     Route::get('posts/{post}/image',[PostController::class,'image'])->name('posts.image');
 });

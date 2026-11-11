@@ -1,0 +1,8 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label":"ICC: тесты MySQL","type":"process","command":"C:\\OSPanel\\modules\\PHP-8.4\\php.exe","args":["artisan","test"],"problemMatcher":[]},
+    {"label":"ICC: миграции","type":"process","command":"C:\\OSPanel\\modules\\PHP-8.4\\php.exe","args":["artisan","migrate"],"problemMatcher":[]},
+    {"label":"ICC: документация API","type":"process","command":"C:\\OSPanel\\modules\\PHP-8.4\\php.exe","args":["artisan","scribe:generate"],"problemMatcher":[]}
+  ]
+}
