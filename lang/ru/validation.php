@@ -1,0 +1,2 @@
+<?php
+return ['required'=>'Поле :attribute обязательно.','string'=>'Поле :attribute должно быть строкой.','max'=>['string'=>'Максимум :max символов.','file'=>'Размер файла не больше :max КБ.'],'attributes'=>['name'=>'имя','title'=>'название','description'=>'описание','password'=>'пароль','email'=>'электронная почта','image'=>'изображение','body'=>'комментарий','asset_ids'=>'элементы','review_comment'=>'причина решения']];
