@@ -1,0 +1,7 @@
+{
+    "engine": "MySQL 8.4 InnoDB",
+    "connections": 2,
+    "lock_wait_timeout": 1205,
+    "blocked_concurrent_update": true,
+    "rollback_preserved_data": true
+}

@@ -1,6 +1,6 @@
 # Архитектура
 
-Клиент — отдельный каталог client, HTML/CSS/JavaScript с fetch, порт 5173. Сервер — Laravel REST API, порт 8000. Представления Blade не используются.
+Клиент — отдельный каталог client, HTML/CSS/JavaScript с fetch, домен https://icc.local. Сервер — Laravel REST API, домен https://api.icc.local. Представления Blade не используются.
 
 Запрос проходит routes/api.php → middleware (Sanctum, active, role) → FormRequest → Controller → Service → Eloquent → MySQL. Ответ — API Resource → JSON → общий клиентский api().
 

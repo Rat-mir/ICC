@@ -1,0 +1,1988 @@
+{
+  "database": "MySQL 8.4.8",
+  "result": "passed",
+  "scenario_maker_id": "14",
+  "scenario_post_id": "14",
+  "checks": [
+    {
+      "screenshot": "01-catalog-mysql"
+    },
+    {
+      "screenshot": "02-filter-search"
+    },
+    {
+      "screenshot": "03-pagination"
+    },
+    {
+      "screenshot": "04-guest-builder"
+    },
+    {
+      "screenshot": "05-registration"
+    },
+    {
+      "screenshot": "06-saved-character"
+    },
+    {
+      "screenshot": "07-published-post"
+    },
+    {
+      "screenshot": "08-comments-and-like"
+    },
+    {
+      "screenshot": "09-my-characters"
+    },
+    {
+      "screenshot": "10-login"
+    },
+    {
+      "screenshot": "11-creator-studio"
+    },
+    {
+      "screenshot": "12-maker-png-upload"
+    },
+    {
+      "screenshot": "13-pending"
+    },
+    {
+      "screenshot": "14-business-conflict-409"
+    },
+    {
+      "screenshot": "15-admin-queue"
+    },
+    {
+      "screenshot": "16-validation-422"
+    },
+    {
+      "screenshot": "17-request-revision"
+    },
+    {
+      "screenshot": "18-approved"
+    },
+    {
+      "screenshot": "19-admin-users"
+    },
+    {
+      "screenshot": "20-admin-posts"
+    },
+    {
+      "test": "manual forbidden admin request",
+      "status": 403
+    },
+    {
+      "screenshot": "21-approved-public"
+    }
+  ],
+  "network": [
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers?",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/1",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/12",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/13",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/2",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/11",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/3",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/4",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/5",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/6",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/63/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/65/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/1/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/13/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/25/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/7/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/31/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/19/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/61/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/64/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/66/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/14/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/2/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/26/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/8/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/32/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/20/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/15/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/3/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/62/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/27/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/9/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/21/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/16/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/33/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/4/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/28/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/10/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/17/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/5/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/22/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/34/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/11/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/29/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/18/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/23/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/6/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/12/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/35/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/30/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/24/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/36/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers?search=%D0%9B%D1%83%D0%BD%D0%BD%D1%8B%D0%B9&category=body&per_page=2",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/1",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/1/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/2/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/3/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/4/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/5/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/6/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers?per_page=2&page=2",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/11",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/1",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/61/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/1/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/62/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/2/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/3/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/4/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/5/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/6/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/1",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/1/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/2/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/3/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/4/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/5/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/6/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/register",
+      "status": 201,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/user",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/1",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/1/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/2/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/3/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/4/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/5/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/6/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/characters",
+      "status": 201,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/characters/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/1",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/1/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/2/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/3/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/4/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/5/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/6/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "PUT",
+      "url": "https://api.icc.local/api/characters/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/posts",
+      "status": 201,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/14/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/posts/14/comments",
+      "status": 201,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/14/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/user",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/characters?",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/logout",
+      "status": 204,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/login",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/user",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers?mine=1",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/1",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/2",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/12",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/11",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/13",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/3",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/1/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/6",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/5",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/4",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/7",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/9",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/8",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/10",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/2/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/7/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/63/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/61/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/13/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/65/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/31/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/3/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/25/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/19/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/49/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/37/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/43/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/55/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/4/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/8/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/62/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/64/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/14/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/66/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/32/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/26/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/20/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/50/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/5/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/44/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/38/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/56/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/9/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/33/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/15/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/21/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/51/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/27/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/6/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/45/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/39/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/57/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/10/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/34/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/22/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/16/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/28/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/52/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/46/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/40/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/58/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/35/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/11/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/23/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/17/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/53/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/29/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/47/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/41/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/59/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/36/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/12/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/24/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/18/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/54/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/30/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/42/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/60/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/48/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/user",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/makers",
+      "status": 201,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/makers/14/assets",
+      "status": 201,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/67/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/makers/14/assets",
+      "status": 201,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/makers/14/submit",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/67/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/68/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/67/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/68/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/makers/14/submit",
+      "status": 409,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/logout",
+      "status": 204,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/login",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/user",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/admin/makers?",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/admin/statistics",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/user",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/67/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/68/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/admin/makers/14/review",
+      "status": 422,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/admin/makers/14/review",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/67/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/68/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/logout",
+      "status": 204,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/login",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/user",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/67/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/68/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "PATCH",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/68/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/67/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/makers/14/submit",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/67/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/68/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/logout",
+      "status": 204,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/login",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/user",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/67/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/68/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/admin/makers/14/review",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/user",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/admin/users?",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/user",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/admin/posts?",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/2/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/14/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/12/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/1/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/13/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/11/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/4/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/3/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/8/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/5/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/6/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/7/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/10/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/posts/9/image",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/logout",
+      "status": 204,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/login",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers?",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/admin/statistics",
+      "status": 403,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "POST",
+      "url": "https://api.icc.local/api/logout",
+      "status": 204,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": "Bearer [REDACTED]",
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers?search=%D0%B8%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/14",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/11",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/makers/13",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/67/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/61/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/65/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/62/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/68/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.icc.local/api/assets/66/image",
+      "status": 200,
+      "authorization": null,
+      "allow_origin": "https://icc.local"
+    }
+  ]
+}

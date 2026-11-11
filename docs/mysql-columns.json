@@ -1,0 +1,658 @@
+[
+    {
+        "TABLE_NAME": "asset_character",
+        "COLUMN_NAME": "asset_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "PRI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "asset_character",
+        "COLUMN_NAME": "character_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "PRI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "asset_character",
+        "COLUMN_NAME": "layer_order",
+        "COLUMN_TYPE": "int unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": "0"
+    },
+    {
+        "TABLE_NAME": "asset_character",
+        "COLUMN_NAME": "created_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "asset_character",
+        "COLUMN_NAME": "updated_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "assets",
+        "COLUMN_NAME": "id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "PRI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "assets",
+        "COLUMN_NAME": "maker_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "assets",
+        "COLUMN_NAME": "name",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "assets",
+        "COLUMN_NAME": "category",
+        "COLUMN_TYPE": "varchar(30)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "assets",
+        "COLUMN_NAME": "file_path",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "assets",
+        "COLUMN_NAME": "layer_order",
+        "COLUMN_TYPE": "int unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": "0"
+    },
+    {
+        "TABLE_NAME": "assets",
+        "COLUMN_NAME": "is_active",
+        "COLUMN_TYPE": "tinyint(1)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": "1"
+    },
+    {
+        "TABLE_NAME": "assets",
+        "COLUMN_NAME": "created_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "assets",
+        "COLUMN_NAME": "updated_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "characters",
+        "COLUMN_NAME": "id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "PRI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "characters",
+        "COLUMN_NAME": "user_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "characters",
+        "COLUMN_NAME": "maker_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "characters",
+        "COLUMN_NAME": "name",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "characters",
+        "COLUMN_NAME": "created_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "characters",
+        "COLUMN_NAME": "updated_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "comments",
+        "COLUMN_NAME": "id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "PRI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "comments",
+        "COLUMN_NAME": "user_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "comments",
+        "COLUMN_NAME": "post_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "comments",
+        "COLUMN_NAME": "body",
+        "COLUMN_TYPE": "text",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "comments",
+        "COLUMN_NAME": "created_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "comments",
+        "COLUMN_NAME": "updated_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "likes",
+        "COLUMN_NAME": "id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "PRI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "likes",
+        "COLUMN_NAME": "user_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "likes",
+        "COLUMN_NAME": "post_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "likes",
+        "COLUMN_NAME": "created_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "likes",
+        "COLUMN_NAME": "updated_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "makers",
+        "COLUMN_NAME": "id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "PRI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "makers",
+        "COLUMN_NAME": "user_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "makers",
+        "COLUMN_NAME": "reviewed_by",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "makers",
+        "COLUMN_NAME": "title",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "makers",
+        "COLUMN_NAME": "description",
+        "COLUMN_TYPE": "text",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "makers",
+        "COLUMN_NAME": "status",
+        "COLUMN_TYPE": "varchar(20)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": "draft"
+    },
+    {
+        "TABLE_NAME": "makers",
+        "COLUMN_NAME": "review_comment",
+        "COLUMN_TYPE": "text",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "makers",
+        "COLUMN_NAME": "submitted_at",
+        "COLUMN_TYPE": "datetime",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "makers",
+        "COLUMN_NAME": "reviewed_at",
+        "COLUMN_TYPE": "datetime",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "makers",
+        "COLUMN_NAME": "created_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "makers",
+        "COLUMN_NAME": "updated_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "migrations",
+        "COLUMN_NAME": "id",
+        "COLUMN_TYPE": "int unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "PRI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "migrations",
+        "COLUMN_NAME": "migration",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "migrations",
+        "COLUMN_NAME": "batch",
+        "COLUMN_TYPE": "int",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "password_reset_tokens",
+        "COLUMN_NAME": "email",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "PRI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "password_reset_tokens",
+        "COLUMN_NAME": "token",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "password_reset_tokens",
+        "COLUMN_NAME": "created_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "COLUMN_NAME": "id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "PRI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "COLUMN_NAME": "tokenable_type",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "COLUMN_NAME": "tokenable_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "COLUMN_NAME": "name",
+        "COLUMN_TYPE": "text",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "COLUMN_NAME": "token",
+        "COLUMN_TYPE": "varchar(64)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "UNI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "COLUMN_NAME": "abilities",
+        "COLUMN_TYPE": "text",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "COLUMN_NAME": "last_used_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "COLUMN_NAME": "expires_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "COLUMN_NAME": "created_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "personal_access_tokens",
+        "COLUMN_NAME": "updated_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "posts",
+        "COLUMN_NAME": "id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "PRI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "posts",
+        "COLUMN_NAME": "user_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "posts",
+        "COLUMN_NAME": "character_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "posts",
+        "COLUMN_NAME": "title",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "posts",
+        "COLUMN_NAME": "image_path",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "posts",
+        "COLUMN_NAME": "is_visible",
+        "COLUMN_TYPE": "tinyint(1)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": "1"
+    },
+    {
+        "TABLE_NAME": "posts",
+        "COLUMN_NAME": "created_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "posts",
+        "COLUMN_NAME": "updated_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "sessions",
+        "COLUMN_NAME": "id",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "PRI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "sessions",
+        "COLUMN_NAME": "user_id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "sessions",
+        "COLUMN_NAME": "ip_address",
+        "COLUMN_TYPE": "varchar(45)",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "sessions",
+        "COLUMN_NAME": "user_agent",
+        "COLUMN_TYPE": "text",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "sessions",
+        "COLUMN_NAME": "payload",
+        "COLUMN_TYPE": "longtext",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "sessions",
+        "COLUMN_NAME": "last_activity",
+        "COLUMN_TYPE": "int",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "MUL",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "users",
+        "COLUMN_NAME": "id",
+        "COLUMN_TYPE": "bigint unsigned",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "PRI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "users",
+        "COLUMN_NAME": "name",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "users",
+        "COLUMN_NAME": "email",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "UNI",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "users",
+        "COLUMN_NAME": "email_verified_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "users",
+        "COLUMN_NAME": "password",
+        "COLUMN_TYPE": "varchar(255)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "users",
+        "COLUMN_NAME": "remember_token",
+        "COLUMN_TYPE": "varchar(100)",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "users",
+        "COLUMN_NAME": "created_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "users",
+        "COLUMN_NAME": "updated_at",
+        "COLUMN_TYPE": "timestamp",
+        "IS_NULLABLE": "YES",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": null
+    },
+    {
+        "TABLE_NAME": "users",
+        "COLUMN_NAME": "role",
+        "COLUMN_TYPE": "varchar(20)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": "user"
+    },
+    {
+        "TABLE_NAME": "users",
+        "COLUMN_NAME": "is_blocked",
+        "COLUMN_TYPE": "tinyint(1)",
+        "IS_NULLABLE": "NO",
+        "COLUMN_KEY": "",
+        "COLUMN_DEFAULT": "0"
+    }
+]

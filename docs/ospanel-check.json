@@ -1,0 +1,11 @@
+{
+  "origin": "https://icc.local",
+  "api": "https://api.icc.local/api",
+  "health": {
+    "app": "ICC",
+    "time": "2026-11-11T16:32:15+00:00",
+    "database": "ok",
+    "driver": "mysql",
+    "server_version": "8.4.8"
+  }
+}

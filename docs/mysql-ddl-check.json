@@ -1,0 +1,15 @@
+{
+    "server": "8.4.8",
+    "database": "icc_backend_ddl",
+    "DDL": "executed",
+    "rows": {
+        "users": 10,
+        "makers": 10,
+        "assets": 60,
+        "characters": 10,
+        "asset_character": 60,
+        "posts": 10,
+        "comments": 10,
+        "likes": 10
+    }
+}

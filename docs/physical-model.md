@@ -124,3 +124,38 @@ RESTRICT защищает используемых владельцев и ме�
 | post_id | BIGINT UNSIGNED | foreignId('post_id') | NOT NULL; FK → posts.id; ON DELETE CASCADE; UNIQUE(user_id,post_id) |
 | created_at | TIMESTAMP | timestamps() | NULL |
 | updated_at | TIMESTAMP | timestamps() | NULL |
+
+
+## Назначение полей
+
+| Поле | Назначение |
+|---|---|
+| id | Идентификатор записи |
+| user_id | Автор или владелец |
+| reviewed_by | Последний модератор |
+| name | Имя или название |
+| email | Уникальная почта |
+| password | Хеш пароля |
+| email_verified_at | Подтверждение email |
+| remember_token | Стандартное поле Laravel |
+| role | Роль доступа |
+| is_blocked | Блокировка аккаунта |
+| title | Название |
+| description | Описание набора |
+| status | Статус модерации |
+| review_comment | Замечание модератора |
+| submitted_at | Дата отправки |
+| reviewed_at | Дата решения |
+| created_at | Создание |
+| updated_at | Изменение |
+| maker_id | Ссылка на мейкер |
+| category | Категория PNG |
+| file_path | Путь приватного PNG |
+| layer_order | Порядок слоя |
+| is_active | Активность элемента |
+| asset_id | Выбранный элемент |
+| character_id | Сохранённый персонаж |
+| image_path | Путь изображения поста |
+| is_visible | Публичность публикации |
+| post_id | Ссылка на публикацию |
+| body | Текст комментария |

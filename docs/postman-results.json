@@ -1,0 +1,222 @@
+{
+  "runner": "Newman 6.2.3 / Postman collection",
+  "database": "MySQL 8.4.8",
+  "requests": [
+    {
+      "name": "01 Health MySQL",
+      "method": "GET",
+      "url": "/api/health",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "02 Without token",
+      "method": "GET",
+      "url": "/api/characters",
+      "status": 401,
+      "error": null
+    },
+    {
+      "name": "03 Creator login",
+      "method": "POST",
+      "url": "/api/login",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "04 Create maker",
+      "method": "POST",
+      "url": "/api/makers",
+      "status": 201,
+      "error": null
+    },
+    {
+      "name": "05 Upload body",
+      "method": "POST",
+      "url": "/api/makers/12/assets",
+      "status": 201,
+      "error": null
+    },
+    {
+      "name": "05 Upload face",
+      "method": "POST",
+      "url": "/api/makers/12/assets",
+      "status": 201,
+      "error": null
+    },
+    {
+      "name": "06 Submit",
+      "method": "POST",
+      "url": "/api/makers/12/submit",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "07 Repeated submit conflict",
+      "method": "POST",
+      "url": "/api/makers/12/submit",
+      "status": 409,
+      "error": null
+    },
+    {
+      "name": "08 Creator cannot moderate",
+      "method": "POST",
+      "url": "/api/admin/makers/12/review",
+      "status": 403,
+      "error": null
+    },
+    {
+      "name": "09 Admin login",
+      "method": "POST",
+      "url": "/api/login",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "10 Missing review reason",
+      "method": "POST",
+      "url": "/api/admin/makers/12/review",
+      "status": 422,
+      "error": null
+    },
+    {
+      "name": "11 Return for revision",
+      "method": "POST",
+      "url": "/api/admin/makers/12/review",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "12 Correct title",
+      "method": "PATCH",
+      "url": "/api/makers/12",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "13 Resubmit",
+      "method": "POST",
+      "url": "/api/makers/12/submit",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "14 Approve",
+      "method": "POST",
+      "url": "/api/admin/makers/12/review",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "15 Search and pagination",
+      "method": "GET",
+      "url": "/api/makers?search=PostmanMySQL1794414541206&category=body&per_page=2&page=1",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "16 User login",
+      "method": "POST",
+      "url": "/api/login",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "17 Create character",
+      "method": "POST",
+      "url": "/api/characters",
+      "status": 201,
+      "error": null
+    },
+    {
+      "name": "18 Own character",
+      "method": "GET",
+      "url": "/api/characters/12",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "19 Foreign owner forbidden",
+      "method": "DELETE",
+      "url": "/api/characters/12",
+      "status": 403,
+      "error": null
+    },
+    {
+      "name": "20 Publish PNG",
+      "method": "POST",
+      "url": "/api/posts",
+      "status": 201,
+      "error": null
+    },
+    {
+      "name": "21 Comment",
+      "method": "POST",
+      "url": "/api/posts/12/comments",
+      "status": 201,
+      "error": null
+    },
+    {
+      "name": "22 Like",
+      "method": "PUT",
+      "url": "/api/posts/12/like",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "23 Repeated like idempotent",
+      "method": "PUT",
+      "url": "/api/posts/12/like",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "24 Unlike",
+      "method": "DELETE",
+      "url": "/api/posts/12/like",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "25 Statistics admin",
+      "method": "GET",
+      "url": "/api/admin/statistics",
+      "status": 200,
+      "error": null
+    },
+    {
+      "name": "26 Invalid filter",
+      "method": "GET",
+      "url": "/api/makers?sort=password&per_page=999",
+      "status": 422,
+      "error": null
+    },
+    {
+      "name": "27 Missing maker",
+      "method": "GET",
+      "url": "/api/makers/9999999",
+      "status": 404,
+      "error": null
+    },
+    {
+      "name": "28 Logout",
+      "method": "POST",
+      "url": "/api/logout",
+      "status": 204,
+      "error": null
+    },
+    {
+      "name": "29 Revoked token",
+      "method": "GET",
+      "url": "/api/user",
+      "status": 401,
+      "error": null
+    }
+  ],
+  "assertions": {
+    "total": 35,
+    "pending": 0,
+    "failed": 0
+  },
+  "failures": []
+}

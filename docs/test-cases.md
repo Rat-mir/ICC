@@ -1,8 +1,6 @@
-# Тест-кейсы ICC
+# Тест-кейсы — MySQL 8.4
 
-Результаты получены автоматическими Feature-тестами, не ручным Postman. В тестах используются фабрики и изолированная SQLite-база. Полный журнал — test-output.txt.
-
-| № | Описание | Запрос | Данные | Ожидаемый результат | Фактический результат (Feature) |
+| № | Описание | Запрос | Данные | Ожидаемый результат | Фактический результат (MySQL Feature) |
 |---|---|---|---|---|---|
 | 1 | health checks database | GET /api/health | Без тела | 200; database=ok | Пройдено: 200; database=ok |
 | 2 | registration hashes password and cannot assign role | POST /api/register | name/email/password/confirmation; затем role=admin | 201 и роль user; с role=admin —422; пароль хеширован | Пройдено: 201 и роль user; с role=admin —422; пароль хеширован |

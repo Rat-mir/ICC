@@ -1,0 +1,2962 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "https:\/\/api.icc.local"
+        }
+    ],
+    "info": {
+        "name": "ICC REST API \u2014 MySQL 8.4",
+        "_postman_id": "0e69a586-03dc-4c43-b602-1d4174d14b63",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "\u0410\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET \/api\/admin\/makers",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/makers",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "\u041b\u0443\u043d\u043d\u044b\u0439",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category",
+                                    "value": "body",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "approved",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "title",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "20",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/admin\/makers?search=%D0%9B%D1%83%D0%BD%D0%BD%D1%8B%D0%B9&category=body&status=approved&sort=title&order=asc&per_page=20&page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"search\":\"b\",\"category\":\"hair\",\"status\":\"rejected\",\"from\":\"2026-11-11T16:48:40\",\"to\":\"2052-12-04\",\"sort\":\"title\",\"order\":\"asc\",\"page\":22,\"per_page\":1,\"mine\":true}"
+                        },
+                        "description": "\u0421\u043f\u0438\u0441\u043e\u043a \u0434\u043b\u044f \u043c\u043e\u0434\u0435\u0440\u0430\u0446\u0438\u0438. \u0414\u043e\u0441\u0442\u0443\u043f: admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"user_id\":2,\"title\":\"\u041b\u0443\u043d\u043d\u044b\u0439 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a\",\"description\":\"\u041d\u0430\u0431\u043e\u0440 PNG 512\u00d7512\",\"status\":\"approved\",\"creator\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\"},\"submitted_at\":\"2026-11-11T00:00:00Z\",\"reviewed_at\":\"2026-11-11T00:00:00Z\",\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"}],\"links\":{\"first\":\"https:\/\/api.icc.local\/api\/admin\/makers?page=1\",\"last\":\"https:\/\/api.icc.local\/api\/admin\/makers?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"last_page\":1,\"per_page\":20,\"total\":1}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST \/api\/admin\/makers\/{maker}\/review",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/makers\/:maker_id\/review",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/makers\/:maker_id\/review",
+                            "variable": [
+                                {
+                                    "id": "maker_id",
+                                    "key": "maker_id",
+                                    "value": 1,
+                                    "description": "The ID of the maker."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"decision\":\"reject\",\"review_comment\":\"b\"}"
+                        },
+                        "description": "\u0420\u0435\u0448\u0435\u043d\u0438\u0435 \u0430\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440\u0430. \u0414\u043e\u0441\u0442\u0443\u043f: admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"user_id\":2,\"title\":\"\u041b\u0443\u043d\u043d\u044b\u0439 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a\",\"description\":\"\u041d\u0430\u0431\u043e\u0440 PNG 512\u00d7512\",\"status\":\"approved\",\"creator\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\"},\"submitted_at\":\"2026-11-11T00:00:00Z\",\"reviewed_at\":\"2026-11-11T00:00:00Z\",\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST \/api\/admin\/makers\/{maker}\/hide",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/makers\/:maker_id\/hide",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/makers\/:maker_id\/hide",
+                            "variable": [
+                                {
+                                    "id": "maker_id",
+                                    "key": "maker_id",
+                                    "value": 1,
+                                    "description": "The ID of the maker."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0421\u043a\u0440\u044b\u0442\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"user_id\":2,\"title\":\"\u041b\u0443\u043d\u043d\u044b\u0439 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a\",\"description\":\"\u041d\u0430\u0431\u043e\u0440 PNG 512\u00d7512\",\"status\":\"approved\",\"creator\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\"},\"submitted_at\":\"2026-11-11T00:00:00Z\",\"reviewed_at\":\"2026-11-11T00:00:00Z\",\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET \/api\/admin\/posts",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/posts",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "\u041b\u0443\u043d\u043d\u044b\u0439",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category",
+                                    "value": "body",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "approved",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "title",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "20",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/admin\/posts?search=%D0%9B%D1%83%D0%BD%D0%BD%D1%8B%D0%B9&category=body&status=approved&sort=title&order=asc&per_page=20&page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"search\":\"b\",\"category\":\"clothes\",\"status\":\"pending\",\"from\":\"2026-11-11T16:48:40\",\"to\":\"2052-12-04\",\"sort\":\"updated_at\",\"order\":\"desc\",\"page\":22,\"per_page\":1,\"mine\":false}"
+                        },
+                        "description": "\u0421\u043f\u0438\u0441\u043e\u043a \u0434\u043b\u044f \u043c\u043e\u0434\u0435\u0440\u0430\u0446\u0438\u0438. \u0414\u043e\u0441\u0442\u0443\u043f: admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"user_id\":3,\"character_id\":1,\"title\":\"\u041c\u043e\u044f \u0440\u0430\u0431\u043e\u0442\u0430\",\"is_visible\":true,\"image_url\":\"https:\/\/api.icc.local\/api\/posts\/1\/image\",\"author\":{\"id\":3,\"name\":\"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c ICC\"},\"likes_count\":1,\"comments_count\":1,\"comments\":[{\"id\":1,\"user_id\":3,\"post_id\":1,\"body\":\"\u041e\u0442\u043b\u0438\u0447\u043d\u044b\u0439 \u043e\u0431\u0440\u0430\u0437!\",\"author\":{\"id\":3,\"name\":\"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c ICC\"},\"created_at\":\"2026-11-11T00:00:00Z\"}],\"created_at\":\"2026-11-11T00:00:00Z\"}],\"links\":{\"first\":\"https:\/\/api.icc.local\/api\/admin\/posts?page=1\",\"last\":\"https:\/\/api.icc.local\/api\/admin\/posts?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"last_page\":1,\"per_page\":20,\"total\":1}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST \/api\/admin\/posts\/{post}\/hide",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/posts\/:post_id\/hide",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/posts\/:post_id\/hide",
+                            "variable": [
+                                {
+                                    "id": "post_id",
+                                    "key": "post_id",
+                                    "value": 1,
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0421\u043a\u0440\u044b\u0442\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"user_id\":3,\"character_id\":1,\"title\":\"\u041c\u043e\u044f \u0440\u0430\u0431\u043e\u0442\u0430\",\"is_visible\":true,\"image_url\":\"https:\/\/api.icc.local\/api\/posts\/1\/image\",\"author\":{\"id\":3,\"name\":\"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c ICC\"},\"likes_count\":1,\"comments_count\":1,\"comments\":[{\"id\":1,\"user_id\":3,\"post_id\":1,\"body\":\"\u041e\u0442\u043b\u0438\u0447\u043d\u044b\u0439 \u043e\u0431\u0440\u0430\u0437!\",\"author\":{\"id\":3,\"name\":\"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c ICC\"},\"created_at\":\"2026-11-11T00:00:00Z\"}],\"created_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET \/api\/admin\/statistics",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/statistics",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/statistics"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0410\u0433\u0440\u0435\u0433\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u0430\u044f \u0441\u0442\u0430\u0442\u0438\u0441\u0442\u0438\u043a\u0430. \u0414\u043e\u0441\u0442\u0443\u043f: admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"makers_by_status\":{\"approved\":6,\"pending\":2,\"revision\":1,\"draft\":1},\"users\":10,\"posts\":10,\"characters\":10}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET \/api\/admin\/users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/users",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "\u041b\u0443\u043d\u043d\u044b\u0439",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category",
+                                    "value": "body",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "approved",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "title",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "20",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/admin\/users?search=%D0%9B%D1%83%D0%BD%D0%BD%D1%8B%D0%B9&category=body&status=approved&sort=title&order=asc&per_page=20&page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"search\":\"b\",\"category\":\"body\",\"status\":\"rejected\",\"from\":\"2026-11-11T16:48:40\",\"to\":\"2052-12-04\",\"sort\":\"title\",\"order\":\"desc\",\"page\":22,\"per_page\":1,\"mine\":true}"
+                        },
+                        "description": "\u0421\u043f\u0438\u0441\u043e\u043a. \u0414\u043e\u0441\u0442\u0443\u043f: admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\",\"email\":\"creator@icc.test\",\"role\":\"creator\",\"is_blocked\":false,\"created_at\":\"2026-11-11T00:00:00Z\"}],\"links\":{\"first\":\"https:\/\/api.icc.local\/api\/admin\/users?page=1\",\"last\":\"https:\/\/api.icc.local\/api\/admin\/users?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"last_page\":1,\"per_page\":20,\"total\":1}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PATCH \/api\/admin\/users\/{user}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/admin\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/admin\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": 1,
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"role\":\"user\",\"is_blocked\":false}"
+                        },
+                        "description": "\u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\",\"email\":\"creator@icc.test\",\"role\":\"creator\",\"is_blocked\":false,\"created_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "\u0410\u0443\u0442\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044f",
+            "description": "",
+            "item": [
+                {
+                    "name": "POST \/api\/register",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"b\",\"email\":\"zbailey@example.net\",\"password\":\"-0pBNvYgxw\"}"
+                        },
+                        "description": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044f. \u0414\u043e\u0441\u0442\u0443\u043f: \u0433\u043e\u0441\u0442\u044c. \u0423\u0441\u043f\u0435\u0445 201. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"user\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\",\"email\":\"creator@icc.test\",\"role\":\"creator\",\"is_blocked\":false},\"token\":\"<\u0442\u043e\u043a\u0435\u043d>\",\"token_type\":\"Bearer\",\"expires_in\":86400}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST \/api\/login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"gbailey@example.net\",\"password\":\"+-0pBNvYgxwmi\\\/#iw\"}"
+                        },
+                        "description": "\u0412\u0445\u043e\u0434 \u0438 \u0442\u043e\u043a\u0435\u043d. \u0414\u043e\u0441\u0442\u0443\u043f: \u0433\u043e\u0441\u0442\u044c. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"user\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\",\"email\":\"creator@icc.test\",\"role\":\"creator\",\"is_blocked\":false},\"token\":\"<\u0442\u043e\u043a\u0435\u043d>\",\"token_type\":\"Bearer\",\"expires_in\":86400}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET \/api\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0422\u0435\u043a\u0443\u0449\u0438\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c. \u0414\u043e\u0441\u0442\u0443\u043f: \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439; \u0441\u0432\u043e\u0439 \u043e\u0431\u044a\u0435\u043a\u0442\/admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\",\"email\":\"creator@icc.test\",\"role\":\"creator\",\"is_blocked\":false,\"created_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST \/api\/logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041e\u0442\u0437\u044b\u0432 \u0442\u043e\u043a\u0435\u043d\u0430. \u0414\u043e\u0441\u0442\u0443\u043f: \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439; \u0441\u0432\u043e\u0439 \u043e\u0431\u044a\u0435\u043a\u0442\/admin. \u0423\u0441\u043f\u0435\u0445 204. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "\u041c\u0435\u0439\u043a\u0435\u0440\u044b \u0438 PNG",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET \/api\/makers",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/makers",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "\u041b\u0443\u043d\u043d\u044b\u0439",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category",
+                                    "value": "body",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "approved",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "title",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "20",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/makers?search=%D0%9B%D1%83%D0%BD%D0%BD%D1%8B%D0%B9&category=body&status=approved&sort=title&order=asc&per_page=20&page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"search\":\"b\",\"category\":\"face\",\"status\":\"rejected\",\"from\":\"2026-11-11T16:48:40\",\"to\":\"2052-12-04\",\"sort\":\"created_at\",\"order\":\"desc\",\"page\":22,\"per_page\":1,\"mine\":false}"
+                        },
+                        "description": "\u0421\u043f\u0438\u0441\u043e\u043a. \u0414\u043e\u0441\u0442\u0443\u043f: approved \u0432\u0441\u0435\u043c; \u043f\u0440\u0438\u0432\u0430\u0442\u043d\u044b\u0435 \u0430\u0432\u0442\u043e\u0440\u0443\/admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"user_id\":2,\"title\":\"\u041b\u0443\u043d\u043d\u044b\u0439 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a\",\"description\":\"\u041d\u0430\u0431\u043e\u0440 PNG 512\u00d7512\",\"status\":\"approved\",\"creator\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\"},\"submitted_at\":\"2026-11-11T00:00:00Z\",\"reviewed_at\":\"2026-11-11T00:00:00Z\",\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"}],\"links\":{\"first\":\"https:\/\/api.icc.local\/api\/makers?page=1\",\"last\":\"https:\/\/api.icc.local\/api\/makers?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"last_page\":1,\"per_page\":20,\"total\":1}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET \/api\/makers\/{maker}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/makers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/makers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": 1,
+                                    "description": "The ID of the maker."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041a\u0430\u0440\u0442\u043e\u0447\u043a\u0430. \u0414\u043e\u0441\u0442\u0443\u043f: approved \u0432\u0441\u0435\u043c; \u043f\u0440\u0438\u0432\u0430\u0442\u043d\u044b\u0435 \u0430\u0432\u0442\u043e\u0440\u0443\/admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"user_id\":2,\"title\":\"\u041b\u0443\u043d\u043d\u044b\u0439 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a\",\"description\":\"\u041d\u0430\u0431\u043e\u0440 PNG 512\u00d7512\",\"status\":\"approved\",\"creator\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\"},\"submitted_at\":\"2026-11-11T00:00:00Z\",\"reviewed_at\":\"2026-11-11T00:00:00Z\",\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET \/api\/assets\/{asset}\/image",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/assets\/:asset_id\/image",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/assets\/:asset_id\/image",
+                            "variable": [
+                                {
+                                    "id": "asset_id",
+                                    "key": "asset_id",
+                                    "value": 1,
+                                    "description": "The ID of the asset."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "PNG \u0441 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u043e\u0439 \u0434\u043e\u0441\u0442\u0443\u043f\u0430. \u0414\u043e\u0441\u0442\u0443\u043f: approved \u0432\u0441\u0435\u043c; \u043f\u0440\u0438\u0432\u0430\u0442\u043d\u044b\u0435 \u0430\u0432\u0442\u043e\u0440\u0443\/admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST \/api\/makers",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/makers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/makers"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"b\",\"description\":\"Et animi quos velit et fugiat.\"}"
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: creator\/admin; \u0432\u043b\u0430\u0434\u0435\u043b\u0435\u0446. \u0423\u0441\u043f\u0435\u0445 201. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"data\":{\"id\":1,\"user_id\":2,\"title\":\"\u041b\u0443\u043d\u043d\u044b\u0439 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a\",\"description\":\"\u041d\u0430\u0431\u043e\u0440 PNG 512\u00d7512\",\"status\":\"approved\",\"creator\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\"},\"submitted_at\":\"2026-11-11T00:00:00Z\",\"reviewed_at\":\"2026-11-11T00:00:00Z\",\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT \/api\/makers\/{maker}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/makers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/makers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": 1,
+                                    "description": "The ID of the maker."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"b\",\"description\":\"Et animi quos velit et fugiat.\"}"
+                        },
+                        "description": "\u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: creator\/admin; \u0432\u043b\u0430\u0434\u0435\u043b\u0435\u0446. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"user_id\":2,\"title\":\"\u041b\u0443\u043d\u043d\u044b\u0439 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a\",\"description\":\"\u041d\u0430\u0431\u043e\u0440 PNG 512\u00d7512\",\"status\":\"approved\",\"creator\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\"},\"submitted_at\":\"2026-11-11T00:00:00Z\",\"reviewed_at\":\"2026-11-11T00:00:00Z\",\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE \/api\/makers\/{maker}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/makers\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/makers\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": 1,
+                                    "description": "The ID of the maker."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: creator\/admin; \u0432\u043b\u0430\u0434\u0435\u043b\u0435\u0446. \u0423\u0441\u043f\u0435\u0445 204. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST \/api\/makers\/{maker}\/submit",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/makers\/:maker_id\/submit",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/makers\/:maker_id\/submit",
+                            "variable": [
+                                {
+                                    "id": "maker_id",
+                                    "key": "maker_id",
+                                    "value": 1,
+                                    "description": "The ID of the maker."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u043d\u0430 \u043c\u043e\u0434\u0435\u0440\u0430\u0446\u0438\u044e. \u0414\u043e\u0441\u0442\u0443\u043f: creator\/admin; \u0432\u043b\u0430\u0434\u0435\u043b\u0435\u0446. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"user_id\":2,\"title\":\"\u041b\u0443\u043d\u043d\u044b\u0439 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a\",\"description\":\"\u041d\u0430\u0431\u043e\u0440 PNG 512\u00d7512\",\"status\":\"approved\",\"creator\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\"},\"submitted_at\":\"2026-11-11T00:00:00Z\",\"reviewed_at\":\"2026-11-11T00:00:00Z\",\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST \/api\/makers\/{maker}\/assets",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/makers\/:maker_id\/assets",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/makers\/:maker_id\/assets",
+                            "variable": [
+                                {
+                                    "id": "maker_id",
+                                    "key": "maker_id",
+                                    "value": 1,
+                                    "description": "The ID of the maker."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "b",
+                                    "type": "text",
+                                    "description": "\u041c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 255 \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432."
+                                },
+                                {
+                                    "key": "category",
+                                    "value": "face",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "layer_order",
+                                    "value": "1",
+                                    "type": "text",
+                                    "description": "validation.between."
+                                },
+                                {
+                                    "key": "is_active",
+                                    "value": "",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: creator\/admin; \u0432\u043b\u0430\u0434\u0435\u043b\u0435\u0446. \u0423\u0441\u043f\u0435\u0445 201. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"data\":{\"id\":1,\"maker_id\":1,\"name\":\"\u041e\u0441\u043d\u043e\u0432\u0430\",\"category\":\"body\",\"layer_order\":10,\"is_active\":true,\"image_url\":\"https:\/\/api.icc.local\/api\/assets\/1\/image\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT \/api\/makers\/{maker}\/assets\/{asset}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/makers\/:maker_id\/assets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/makers\/:maker_id\/assets\/:id",
+                            "variable": [
+                                {
+                                    "id": "maker_id",
+                                    "key": "maker_id",
+                                    "value": 1,
+                                    "description": "The ID of the maker."
+                                },
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": 1,
+                                    "description": "The ID of the asset."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "b",
+                                    "type": "text",
+                                    "description": "\u041c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 255 \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432."
+                                },
+                                {
+                                    "key": "category",
+                                    "value": "accessory",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "layer_order",
+                                    "value": "1",
+                                    "type": "text",
+                                    "description": "validation.between."
+                                },
+                                {
+                                    "key": "is_active",
+                                    "value": "1",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "_method",
+                                    "value": "PUT",
+                                    "type": "text"
+                                }
+                            ]
+                        },
+                        "description": "\u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: creator\/admin; \u0432\u043b\u0430\u0434\u0435\u043b\u0435\u0446. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"maker_id\":1,\"name\":\"\u041e\u0441\u043d\u043e\u0432\u0430\",\"category\":\"body\",\"layer_order\":10,\"is_active\":true,\"image_url\":\"https:\/\/api.icc.local\/api\/assets\/1\/image\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE \/api\/makers\/{maker}\/assets\/{asset}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/makers\/:maker_id\/assets\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/makers\/:maker_id\/assets\/:id",
+                            "variable": [
+                                {
+                                    "id": "maker_id",
+                                    "key": "maker_id",
+                                    "value": 1,
+                                    "description": "The ID of the maker."
+                                },
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": 1,
+                                    "description": "The ID of the asset."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: creator\/admin; \u0432\u043b\u0430\u0434\u0435\u043b\u0435\u0446. \u0423\u0441\u043f\u0435\u0445 204. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "\u041f\u0435\u0440\u0441\u043e\u043d\u0430\u0436\u0438",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET \/api\/characters",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/characters",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "\u041b\u0443\u043d\u043d\u044b\u0439",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category",
+                                    "value": "body",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "approved",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "title",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "20",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/characters?search=%D0%9B%D1%83%D0%BD%D0%BD%D1%8B%D0%B9&category=body&status=approved&sort=title&order=asc&per_page=20&page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"search\":\"b\",\"category\":\"background\",\"status\":\"pending\",\"from\":\"2026-11-11T16:48:40\",\"to\":\"2052-12-04\",\"sort\":\"title\",\"order\":\"desc\",\"page\":22,\"per_page\":1,\"mine\":false}"
+                        },
+                        "description": "\u0421\u043f\u0438\u0441\u043e\u043a. \u0414\u043e\u0441\u0442\u0443\u043f: \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439; \u0441\u0432\u043e\u0439 \u043e\u0431\u044a\u0435\u043a\u0442\/admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"user_id\":3,\"maker_id\":1,\"name\":\"\u041c\u043e\u0439 \u0433\u0435\u0440\u043e\u0439\",\"maker\":{\"id\":1,\"user_id\":2,\"title\":\"\u041b\u0443\u043d\u043d\u044b\u0439 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a\",\"description\":\"\u041d\u0430\u0431\u043e\u0440 PNG 512\u00d7512\",\"status\":\"approved\",\"creator\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\"},\"submitted_at\":\"2026-11-11T00:00:00Z\",\"reviewed_at\":\"2026-11-11T00:00:00Z\",\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"},\"assets\":[{\"id\":1,\"maker_id\":1,\"name\":\"\u041e\u0441\u043d\u043e\u0432\u0430\",\"category\":\"body\",\"layer_order\":10,\"is_active\":true,\"image_url\":\"https:\/\/api.icc.local\/api\/assets\/1\/image\",\"selected_layer_order\":0}],\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"}],\"links\":{\"first\":\"https:\/\/api.icc.local\/api\/characters?page=1\",\"last\":\"https:\/\/api.icc.local\/api\/characters?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"last_page\":1,\"per_page\":20,\"total\":1}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST \/api\/characters",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/characters",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/characters"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"b\",\"maker_id\":16,\"asset_ids\":[16]}"
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439; \u0441\u0432\u043e\u0439 \u043e\u0431\u044a\u0435\u043a\u0442\/admin. \u0423\u0441\u043f\u0435\u0445 201. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"data\":{\"id\":1,\"user_id\":3,\"maker_id\":1,\"name\":\"\u041c\u043e\u0439 \u0433\u0435\u0440\u043e\u0439\",\"maker\":{\"id\":1,\"user_id\":2,\"title\":\"\u041b\u0443\u043d\u043d\u044b\u0439 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a\",\"description\":\"\u041d\u0430\u0431\u043e\u0440 PNG 512\u00d7512\",\"status\":\"approved\",\"creator\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\"},\"submitted_at\":\"2026-11-11T00:00:00Z\",\"reviewed_at\":\"2026-11-11T00:00:00Z\",\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"},\"assets\":[{\"id\":1,\"maker_id\":1,\"name\":\"\u041e\u0441\u043d\u043e\u0432\u0430\",\"category\":\"body\",\"layer_order\":10,\"is_active\":true,\"image_url\":\"https:\/\/api.icc.local\/api\/assets\/1\/image\",\"selected_layer_order\":0}],\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET \/api\/characters\/{character}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/characters\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/characters\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": 1,
+                                    "description": "The ID of the character."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041a\u0430\u0440\u0442\u043e\u0447\u043a\u0430. \u0414\u043e\u0441\u0442\u0443\u043f: \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439; \u0441\u0432\u043e\u0439 \u043e\u0431\u044a\u0435\u043a\u0442\/admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"user_id\":3,\"maker_id\":1,\"name\":\"\u041c\u043e\u0439 \u0433\u0435\u0440\u043e\u0439\",\"maker\":{\"id\":1,\"user_id\":2,\"title\":\"\u041b\u0443\u043d\u043d\u044b\u0439 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a\",\"description\":\"\u041d\u0430\u0431\u043e\u0440 PNG 512\u00d7512\",\"status\":\"approved\",\"creator\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\"},\"submitted_at\":\"2026-11-11T00:00:00Z\",\"reviewed_at\":\"2026-11-11T00:00:00Z\",\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"},\"assets\":[{\"id\":1,\"maker_id\":1,\"name\":\"\u041e\u0441\u043d\u043e\u0432\u0430\",\"category\":\"body\",\"layer_order\":10,\"is_active\":true,\"image_url\":\"https:\/\/api.icc.local\/api\/assets\/1\/image\",\"selected_layer_order\":0}],\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT \/api\/characters\/{character}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/characters\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/characters\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": 1,
+                                    "description": "The ID of the character."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"b\",\"maker_id\":16,\"asset_ids\":[16]}"
+                        },
+                        "description": "\u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439; \u0441\u0432\u043e\u0439 \u043e\u0431\u044a\u0435\u043a\u0442\/admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"user_id\":3,\"maker_id\":1,\"name\":\"\u041c\u043e\u0439 \u0433\u0435\u0440\u043e\u0439\",\"maker\":{\"id\":1,\"user_id\":2,\"title\":\"\u041b\u0443\u043d\u043d\u044b\u0439 \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a\",\"description\":\"\u041d\u0430\u0431\u043e\u0440 PNG 512\u00d7512\",\"status\":\"approved\",\"creator\":{\"id\":2,\"name\":\"\u041a\u0440\u0435\u0430\u0442\u043e\u0440 ICC\"},\"submitted_at\":\"2026-11-11T00:00:00Z\",\"reviewed_at\":\"2026-11-11T00:00:00Z\",\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"},\"assets\":[{\"id\":1,\"maker_id\":1,\"name\":\"\u041e\u0441\u043d\u043e\u0432\u0430\",\"category\":\"body\",\"layer_order\":10,\"is_active\":true,\"image_url\":\"https:\/\/api.icc.local\/api\/assets\/1\/image\",\"selected_layer_order\":0}],\"created_at\":\"2026-11-11T00:00:00Z\",\"updated_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE \/api\/characters\/{character}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/characters\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/characters\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": 1,
+                                    "description": "The ID of the character."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439; \u0441\u0432\u043e\u0439 \u043e\u0431\u044a\u0435\u043a\u0442\/admin. \u0423\u0441\u043f\u0435\u0445 204. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "\u041f\u0443\u0431\u043b\u0438\u043a\u0430\u0446\u0438\u0438 \u0438 \u0440\u0435\u0430\u043a\u0446\u0438\u0438",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET \/api\/health",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/health",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/health"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f \u0438 \u0411\u0414. \u0414\u043e\u0441\u0442\u0443\u043f: \u0433\u043e\u0441\u0442\u044c. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500,503. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"app\":\"ICC\",\"time\":\"2026-11-11T00:00:00+00:00\",\"database\":\"ok\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET \/api\/posts",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "\u041b\u0443\u043d\u043d\u044b\u0439",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "category",
+                                    "value": "body",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "approved",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "title",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "20",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "\u041f\u0430\u0440\u0430\u043c\u0435\u0442\u0440 \u0441\u043f\u0438\u0441\u043a\u0430.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/posts?search=%D0%9B%D1%83%D0%BD%D0%BD%D1%8B%D0%B9&category=body&status=approved&sort=title&order=asc&per_page=20&page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"search\":\"b\",\"category\":\"accessory\",\"status\":\"revision\",\"from\":\"2026-11-11T16:48:40\",\"to\":\"2052-12-04\",\"sort\":\"updated_at\",\"order\":\"desc\",\"page\":22,\"per_page\":1,\"mine\":true}"
+                        },
+                        "description": "\u0421\u043f\u0438\u0441\u043e\u043a. \u0414\u043e\u0441\u0442\u0443\u043f: \u0432\u0438\u0434\u0438\u043c\u044b\u0435 \u0432\u0441\u0435\u043c; \u0441\u043a\u0440\u044b\u0442\u044b\u0435 \u0430\u0432\u0442\u043e\u0440\u0443\/admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"user_id\":3,\"character_id\":1,\"title\":\"\u041c\u043e\u044f \u0440\u0430\u0431\u043e\u0442\u0430\",\"is_visible\":true,\"image_url\":\"https:\/\/api.icc.local\/api\/posts\/1\/image\",\"author\":{\"id\":3,\"name\":\"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c ICC\"},\"likes_count\":1,\"comments_count\":1,\"comments\":[{\"id\":1,\"user_id\":3,\"post_id\":1,\"body\":\"\u041e\u0442\u043b\u0438\u0447\u043d\u044b\u0439 \u043e\u0431\u0440\u0430\u0437!\",\"author\":{\"id\":3,\"name\":\"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c ICC\"},\"created_at\":\"2026-11-11T00:00:00Z\"}],\"created_at\":\"2026-11-11T00:00:00Z\"}],\"links\":{\"first\":\"https:\/\/api.icc.local\/api\/posts?page=1\",\"last\":\"https:\/\/api.icc.local\/api\/posts?page=1\",\"prev\":null,\"next\":null},\"meta\":{\"current_page\":1,\"last_page\":1,\"per_page\":20,\"total\":1}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET \/api\/posts\/{post}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/posts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": 1,
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041a\u0430\u0440\u0442\u043e\u0447\u043a\u0430. \u0414\u043e\u0441\u0442\u0443\u043f: \u0432\u0438\u0434\u0438\u043c\u044b\u0435 \u0432\u0441\u0435\u043c; \u0441\u043a\u0440\u044b\u0442\u044b\u0435 \u0430\u0432\u0442\u043e\u0440\u0443\/admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"user_id\":3,\"character_id\":1,\"title\":\"\u041c\u043e\u044f \u0440\u0430\u0431\u043e\u0442\u0430\",\"is_visible\":true,\"image_url\":\"https:\/\/api.icc.local\/api\/posts\/1\/image\",\"author\":{\"id\":3,\"name\":\"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c ICC\"},\"likes_count\":1,\"comments_count\":1,\"comments\":[{\"id\":1,\"user_id\":3,\"post_id\":1,\"body\":\"\u041e\u0442\u043b\u0438\u0447\u043d\u044b\u0439 \u043e\u0431\u0440\u0430\u0437!\",\"author\":{\"id\":3,\"name\":\"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c ICC\"},\"created_at\":\"2026-11-11T00:00:00Z\"}],\"created_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GET \/api\/posts\/{post}\/image",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:post_id\/image",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/posts\/:post_id\/image",
+                            "variable": [
+                                {
+                                    "id": "post_id",
+                                    "key": "post_id",
+                                    "value": 1,
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "PNG \u0441 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u043e\u0439 \u0434\u043e\u0441\u0442\u0443\u043f\u0430. \u0414\u043e\u0441\u0442\u0443\u043f: \u0432\u0438\u0434\u0438\u043c\u044b\u0435 \u0432\u0441\u0435\u043c; \u0441\u043a\u0440\u044b\u0442\u044b\u0435 \u0430\u0432\u0442\u043e\u0440\u0443\/admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST \/api\/posts",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/posts"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "title",
+                                    "value": "b",
+                                    "type": "text",
+                                    "description": "\u041c\u0430\u043a\u0441\u0438\u043c\u0443\u043c 255 \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432."
+                                },
+                                {
+                                    "key": "character_id",
+                                    "value": "16",
+                                    "type": "text",
+                                    "description": "Must match an existing stored value."
+                                },
+                                {
+                                    "key": "image",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439; \u0441\u0432\u043e\u0439 \u043e\u0431\u044a\u0435\u043a\u0442\/admin. \u0423\u0441\u043f\u0435\u0445 201. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"data\":{\"id\":1,\"user_id\":3,\"character_id\":1,\"title\":\"\u041c\u043e\u044f \u0440\u0430\u0431\u043e\u0442\u0430\",\"is_visible\":true,\"image_url\":\"https:\/\/api.icc.local\/api\/posts\/1\/image\",\"author\":{\"id\":3,\"name\":\"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c ICC\"},\"likes_count\":1,\"comments_count\":1,\"comments\":[{\"id\":1,\"user_id\":3,\"post_id\":1,\"body\":\"\u041e\u0442\u043b\u0438\u0447\u043d\u044b\u0439 \u043e\u0431\u0440\u0430\u0437!\",\"author\":{\"id\":3,\"name\":\"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c ICC\"},\"created_at\":\"2026-11-11T00:00:00Z\"}],\"created_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE \/api\/posts\/{post}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/posts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": 1,
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439; \u0441\u0432\u043e\u0439 \u043e\u0431\u044a\u0435\u043a\u0442\/admin. \u0423\u0441\u043f\u0435\u0445 204. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "POST \/api\/posts\/{post}\/comments",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:post_id\/comments",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/posts\/:post_id\/comments",
+                            "variable": [
+                                {
+                                    "id": "post_id",
+                                    "key": "post_id",
+                                    "value": 1,
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"body\":\"b\"}"
+                        },
+                        "description": "\u0414\u043e\u0431\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u043a\u043e\u043c\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u044f. \u0414\u043e\u0441\u0442\u0443\u043f: \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439; \u0441\u0432\u043e\u0439 \u043e\u0431\u044a\u0435\u043a\u0442\/admin. \u0423\u0441\u043f\u0435\u0445 201. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 201,
+                            "body": "{\"data\":{\"id\":1,\"user_id\":3,\"post_id\":1,\"body\":\"\u041e\u0442\u043b\u0438\u0447\u043d\u044b\u0439 \u043e\u0431\u0440\u0430\u0437!\",\"author\":{\"id\":3,\"name\":\"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c ICC\"},\"created_at\":\"2026-11-11T00:00:00Z\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE \/api\/comments\/{comment}",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/comments\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": 1,
+                                    "description": "The ID of the comment."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435. \u0414\u043e\u0441\u0442\u0443\u043f: \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439; \u0441\u0432\u043e\u0439 \u043e\u0431\u044a\u0435\u043a\u0442\/admin. \u0423\u0441\u043f\u0435\u0445 204. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT \/api\/posts\/{post}\/like",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:post_id\/like",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/posts\/:post_id\/like",
+                            "variable": [
+                                {
+                                    "id": "post_id",
+                                    "key": "post_id",
+                                    "value": 1,
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041f\u043e\u0441\u0442\u0430\u0432\u0438\u0442\u044c \u043b\u0430\u0439\u043a. \u0414\u043e\u0441\u0442\u0443\u043f: \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439; \u0441\u0432\u043e\u0439 \u043e\u0431\u044a\u0435\u043a\u0442\/admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"liked\":true,\"likes_count\":1}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "DELETE \/api\/posts\/{post}\/like",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:post_id\/like",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/posts\/:post_id\/like",
+                            "variable": [
+                                {
+                                    "id": "post_id",
+                                    "key": "post_id",
+                                    "value": 1,
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0421\u043d\u044f\u0442\u044c \u043b\u0430\u0439\u043a. \u0414\u043e\u0441\u0442\u0443\u043f: \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439; \u0441\u0432\u043e\u0439 \u043e\u0431\u044a\u0435\u043a\u0442\/admin. \u0423\u0441\u043f\u0435\u0445 200. \u041e\u0448\u0438\u0431\u043a\u0438 401,403,404,409,422,429,500. message \u0434\u043b\u044f \u043e\u0448\u0438\u0431\u043e\u043a, errors \u0434\u043b\u044f 422."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"liked\":false,\"likes_count\":0}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\"message\":\"\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c \u0442\u043e\u043a\u0435\u043d \u0434\u043e\u0441\u0442\u0443\u043f\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e \u043f\u0440\u0430\u0432.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"message\":\"\u0417\u0430\u043f\u0438\u0441\u044c \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"message\":\"\u041d\u0435\u0434\u043e\u043f\u0443\u0441\u0442\u0438\u043c\u044b\u0439 \u043f\u0435\u0440\u0435\u0445\u043e\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"message\":\"\u041e\u0448\u0438\u0431\u043a\u0430 \u0432\u0430\u043b\u0438\u0434\u0430\u0446\u0438\u0438\",\"errors\":{\"title\":[\"\u041f\u043e\u043b\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e.\"]}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "key",
+                "type": "string"
+            }
+        ]
+    }
+}

@@ -94,7 +94,7 @@ Maker (карточка; assets[] при загрузке связи)
       "category": "body",
       "layer_order": 10,
       "is_active": true,
-      "image_url": "http://127.0.0.1:8000/api/assets/1/image"
+      "image_url": "https://api.icc.local/api/assets/1/image"
     }
   ]
 }
@@ -110,7 +110,7 @@ Asset
   "category": "body",
   "layer_order": 10,
   "is_active": true,
-  "image_url": "http://127.0.0.1:8000/api/assets/1/image"
+  "image_url": "https://api.icc.local/api/assets/1/image"
 }
 ~~~
 
@@ -145,7 +145,7 @@ Character
       "category": "body",
       "layer_order": 10,
       "is_active": true,
-      "image_url": "http://127.0.0.1:8000/api/assets/1/image",
+      "image_url": "https://api.icc.local/api/assets/1/image",
       "selected_layer_order": 0
     }
   ],
@@ -163,7 +163,7 @@ Post (карточка)
   "character_id": 1,
   "title": "Моя работа",
   "is_visible": true,
-  "image_url": "http://127.0.0.1:8000/api/posts/1/image",
+  "image_url": "https://api.icc.local/api/posts/1/image",
   "author": {
     "id": 3,
     "name": "Пользователь ICC"
@@ -204,3 +204,6 @@ Comment
 ~~~
 
 Связанные объекты и подсчёты выводятся только при загрузке соответствующих отношений; поля review_comment/reviewed_by — автору/admin. Примеры описывают формат, а не фактический ответ каждого запроса.
+
+
+Автоматическая документация Scribe: https://api.icc.local/docs/ (HTML, OpenAPI, Postman). Генерация: php artisan scribe:generate.
