@@ -92,3 +92,26 @@ ICC (Interactive Character Catalog) выполнен по КП 3–12 курса
 Пароли хранятся хешами, PNG — в storage/app/private, в БД — пути и метаданные. Изображения выдаёт API после проверки доступа, поэтому storage:link для приватных наборов не требуется. .env и .env.testing исключены из Git и архивов. Журнал не содержит паролей и Bearer-токенов.
 
 Основная модель из исходных DOCX сохранена: User, Maker, Asset, Character, Post, Comment, Like. Вспомогательное поле asset_character.layer_order хранит порядок выбранных слоёв. Статус hidden реализует административное скрытие. Последнее решение модерации хранится в Maker, без отдельной истории.
+
+
+## Запуск бэкенда через Artisan в OSPanel
+
+Включите PHP-8.4 и MySQL-8.4 в OSPanel. В VS Code откройте `C:\OSPanel\home\ICC` и выполните в PowerShell:
+
+```powershell
+& "C:\OSPanel\modules\PHP-8.4\php.exe" artisan serve --host=127.0.0.1 --port=8000
+```
+
+API: http://127.0.0.1:8000/api/health, документация: http://127.0.0.1:8000/docs/.
+Это локальный HTTP-режим разработки. Для HTTPS используйте Apache OSPanel и https://api.icc.local.
+Хост и порт Artisan `127.0.0.1:8000` не совпадают с подключением MySQL `127.0.1.31:3306` — это разные службы.
+Если меняете API-origin, обновите локальный APP_URL и настройку API у потребителя; выполните `php artisan optimize:clear`.
+
+Для ручной настройки вместо setup-mysql.php: скопируйте `.env.example` в `.env`, заполните MySQL, выполните `php artisan key:generate`, затем `php artisan migrate --seed`. Для тестов также нужна `.env.testing` с `icc_backend_test`.
+
+## Репозиторий и пояснительная записка
+
+- Публичный репозиторий: https://github.com/Rat-mir/ICC
+- [Коммиты КП 3–12](docs/commit-map.md).
+- ПР 13 только о бэкенде: `docs/reports/ПР13_ICC_Бэкенд.docx` и `.pdf`.
+- Для передачи напарнику: клонировать репозиторий, выполнить `composer install` и настройку MySQL по инструкции выше. Реальные `.env`, `vendor` и приватные файлы в Git не передаются; демонстрационные PNG создаются сидером.

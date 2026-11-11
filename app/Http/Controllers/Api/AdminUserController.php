@@ -12,11 +12,6 @@ class AdminUserController {
      * Список. Доступ: admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.
      * @group Администрирование
      * @authenticated
-     * @queryParam search string Параметр списка. Example: Лунный
-     * @queryParam category string Параметр списка. Example: body
-     * @queryParam status string Параметр списка. Example: approved
-     * @queryParam sort string Параметр списка. Example: title
-     * @queryParam order string Параметр списка. Example: asc
      * @queryParam per_page integer Параметр списка. Example: 20
      * @queryParam page integer Параметр списка. Example: 1
      * @response 200 {"data":[{"id":2,"name":"Креатор ICC","email":"creator@icc.test","role":"creator","is_blocked":false,"created_at":"2026-11-11T00:00:00Z"}],"links":{"first":"https://api.icc.local/api/admin/users?page=1","last":"https://api.icc.local/api/admin/users?page=1","prev":null,"next":null},"meta":{"current_page":1,"last_page":1,"per_page":20,"total":1}}

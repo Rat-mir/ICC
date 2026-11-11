@@ -1,23 +1,22 @@
-name: Персонажи
+name: 'Публикации и реакции'
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - GET
-    uri: api/characters
+    uri: api/posts
     metadata:
       custom: []
-      groupName: Персонажи
+      groupName: 'Публикации и реакции'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'GET /api/characters'
-      description: 'Список. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
-      authenticated: true
+      title: 'GET /api/posts'
+      description: 'Список. Доступ: видимые всем; скрытые автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
+      authenticated: false
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
@@ -125,7 +124,7 @@ endpoints:
         name: category
         description: ''
         required: false
-        example: background
+        example: body
         type: string
         enumValues:
           - body
@@ -142,7 +141,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: pending
+        example: approved
         type: string
         enumValues:
           - draft
@@ -159,7 +158,7 @@ endpoints:
         name: from
         description: validation.date.
         required: false
-        example: '2026-11-11T16:48:40'
+        example: '2026-11-11T19:34:15'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -181,7 +180,7 @@ endpoints:
         name: sort
         description: ''
         required: false
-        example: title
+        example: created_at
         type: string
         enumValues:
           - id
@@ -231,7 +230,7 @@ endpoints:
         name: mine
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -239,21 +238,21 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       search: b
-      category: background
-      status: pending
-      from: '2026-11-11T16:48:40'
+      category: body
+      status: approved
+      from: '2026-11-11T19:34:15'
       to: '2052-12-04'
-      sort: title
+      sort: created_at
       order: desc
       page: 22
       per_page: 1
-      mine: false
+      mine: true
     fileParameters: []
     responses:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":1,"user_id":3,"maker_id":1,"name":"Мой герой","maker":{"id":1,"user_id":2,"title":"Лунный путешественник","description":"Набор PNG 512×512","status":"approved","creator":{"id":2,"name":"Креатор ICC"},"submitted_at":"2026-11-11T00:00:00Z","reviewed_at":"2026-11-11T00:00:00Z","created_at":"2026-11-11T00:00:00Z","updated_at":"2026-11-11T00:00:00Z"},"assets":[{"id":1,"maker_id":1,"name":"Основа","category":"body","layer_order":10,"is_active":true,"image_url":"https://api.icc.local/api/assets/1/image","selected_layer_order":0}],"created_at":"2026-11-11T00:00:00Z","updated_at":"2026-11-11T00:00:00Z"}],"links":{"first":"https://api.icc.local/api/characters?page=1","last":"https://api.icc.local/api/characters?page=1","prev":null,"next":null},"meta":{"current_page":1,"last_page":1,"per_page":20,"total":1}}'
+        content: '{"data":[{"id":1,"user_id":3,"character_id":1,"title":"Моя работа","is_visible":true,"image_url":"https://api.icc.local/api/posts/1/image","author":{"id":3,"name":"Пользователь ICC"},"likes_count":1,"comments_count":1,"comments":[{"id":1,"user_id":3,"post_id":1,"body":"Отличный образ!","author":{"id":3,"name":"Пользователь ICC"},"created_at":"2026-11-11T00:00:00Z"}],"created_at":"2026-11-11T00:00:00Z"}],"links":{"first":"https://api.icc.local/api/posts?page=1","last":"https://api.icc.local/api/posts?page=1","prev":null,"next":null},"meta":{"current_page":1,"last_page":1,"per_page":20,"total":1}}'
         headers: []
         description: ''
       -
@@ -287,119 +286,7 @@ endpoints:
         headers: []
         description: ''
     responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: api/characters
-    metadata:
-      custom: []
-      groupName: Персонажи
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'POST /api/characters'
-      description: 'Создание. Доступ: авторизованный; свой объект/admin. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        custom: []
-        name: name
-        description: 'Максимум 255 символов.'
-        required: true
-        example: b
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      maker_id:
-        custom: []
-        name: maker_id
-        description: 'Must match an existing stored value.'
-        required: true
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      asset_ids:
-        custom: []
-        name: asset_ids
-        description: 'Must match an existing stored value.'
-        required: true
-        example:
-          - 16
-        type: 'integer[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanBodyParameters:
-      name: b
-      maker_id: 16
-      asset_ids:
-        - 16
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 201
-        content: '{"data":{"id":1,"user_id":3,"maker_id":1,"name":"Мой герой","maker":{"id":1,"user_id":2,"title":"Лунный путешественник","description":"Набор PNG 512×512","status":"approved","creator":{"id":2,"name":"Креатор ICC"},"submitted_at":"2026-11-11T00:00:00Z","reviewed_at":"2026-11-11T00:00:00Z","created_at":"2026-11-11T00:00:00Z","updated_at":"2026-11-11T00:00:00Z"},"assets":[{"id":1,"maker_id":1,"name":"Основа","category":"body","layer_order":10,"is_active":true,"image_url":"https://api.icc.local/api/assets/1/image","selected_layer_order":0}],"created_at":"2026-11-11T00:00:00Z","updated_at":"2026-11-11T00:00:00Z"}}'
-        headers: []
-        description: ''
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Необходим токен доступа."}'
-        headers: []
-        description: ''
-      -
-        custom: []
-        status: 403
-        content: '{"message":"Недостаточно прав."}'
-        headers: []
-        description: ''
-      -
-        custom: []
-        status: 404
-        content: '{"message":"Запись не найдена."}'
-        headers: []
-        description: ''
-      -
-        custom: []
-        status: 409
-        content: '{"message":"Недопустимый переход статуса."}'
-        headers: []
-        description: ''
-      -
-        custom: []
-        status: 422
-        content: '{"message":"Ошибка валидации","errors":{"title":["Поле обязательно."]}}'
-        headers: []
-        description: ''
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    auth: []
     controller: null
     method: null
     route: null
@@ -407,26 +294,25 @@ endpoints:
     custom: []
     httpMethods:
       - GET
-    uri: 'api/characters/{id}'
+    uri: 'api/posts/{id}'
     metadata:
       custom: []
-      groupName: Персонажи
+      groupName: 'Публикации и реакции'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'GET /api/characters/{character}'
-      description: 'Карточка. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
-      authenticated: true
+      title: 'GET /api/posts/{post}'
+      description: 'Карточка. Доступ: видимые всем; скрытые автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
+      authenticated: false
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
         custom: []
         name: id
-        description: 'The ID of the character.'
+        description: 'The ID of the post.'
         required: true
         example: 1
         type: integer
@@ -445,7 +331,7 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":1,"user_id":3,"maker_id":1,"name":"Мой герой","maker":{"id":1,"user_id":2,"title":"Лунный путешественник","description":"Набор PNG 512×512","status":"approved","creator":{"id":2,"name":"Креатор ICC"},"submitted_at":"2026-11-11T00:00:00Z","reviewed_at":"2026-11-11T00:00:00Z","created_at":"2026-11-11T00:00:00Z","updated_at":"2026-11-11T00:00:00Z"},"assets":[{"id":1,"maker_id":1,"name":"Основа","category":"body","layer_order":10,"is_active":true,"image_url":"https://api.icc.local/api/assets/1/image","selected_layer_order":0}],"created_at":"2026-11-11T00:00:00Z","updated_at":"2026-11-11T00:00:00Z"}}'
+        content: '{"data":{"id":1,"user_id":3,"character_id":1,"title":"Моя работа","is_visible":true,"image_url":"https://api.icc.local/api/posts/1/image","author":{"id":3,"name":"Пользователь ICC"},"likes_count":1,"comments_count":1,"comments":[{"id":1,"user_id":3,"post_id":1,"body":"Отличный образ!","author":{"id":3,"name":"Пользователь ICC"},"created_at":"2026-11-11T00:00:00Z"}],"created_at":"2026-11-11T00:00:00Z"}}'
         headers: []
         description: ''
       -
@@ -479,38 +365,33 @@ endpoints:
         headers: []
         description: ''
     responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    auth: []
     controller: null
     method: null
     route: null
   -
     custom: []
     httpMethods:
-      - PUT
-      - PATCH
-    uri: 'api/characters/{id}'
+      - GET
+    uri: 'api/posts/{post_id}/image'
     metadata:
       custom: []
-      groupName: Персонажи
+      groupName: 'Публикации и реакции'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'PUT /api/characters/{character}'
-      description: 'Изменение. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
-      authenticated: true
+      title: 'GET /api/posts/{post}/image'
+      description: 'PNG с проверкой доступа. Доступ: видимые всем; скрытые автору/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
+      authenticated: false
       deprecated: false
     headers:
-      Authorization: 'Bearer {YOUR_AUTH_KEY}'
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      id:
+      post_id:
         custom: []
-        name: id
-        description: 'The ID of the character.'
+        name: post_id
+        description: 'The ID of the post.'
         required: true
         example: 1
         type: integer
@@ -519,13 +400,81 @@ endpoints:
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: 1
+      post_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Необходим токен доступа."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: '{"message":"Недостаточно прав."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: '{"message":"Запись не найдена."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 409
+        content: '{"message":"Недопустимый переход статуса."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: '{"message":"Ошибка валидации","errors":{"title":["Поле обязательно."]}}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/posts
+    metadata:
+      custom: []
+      groupName: 'Публикации и реакции'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'POST /api/posts'
+      description: 'Создание. Доступ: авторизованный; свой объект/admin. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
+      title:
         custom: []
-        name: name
+        name: title
         description: 'Максимум 255 символов.'
         required: true
         example: b
@@ -534,40 +483,38 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      maker_id:
+      character_id:
         custom: []
-        name: maker_id
+        name: character_id
         description: 'Must match an existing stored value.'
-        required: true
+        required: false
         example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      asset_ids:
+      image:
         custom: []
-        name: asset_ids
-        description: 'Must match an existing stored value.'
+        name: image
+        description: 'Must be a file. validation.image Размер файла не больше 5120 КБ.'
         required: true
-        example:
-          - 16
-        type: 'integer[]'
+        example: null
+        type: file
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      name: b
-      maker_id: 16
-      asset_ids:
-        - 16
-    fileParameters: []
+      title: b
+      character_id: 16
+    fileParameters:
+      image: null
     responses:
       -
         custom: []
-        status: 200
-        content: '{"data":{"id":1,"user_id":3,"maker_id":1,"name":"Мой герой","maker":{"id":1,"user_id":2,"title":"Лунный путешественник","description":"Набор PNG 512×512","status":"approved","creator":{"id":2,"name":"Креатор ICC"},"submitted_at":"2026-11-11T00:00:00Z","reviewed_at":"2026-11-11T00:00:00Z","created_at":"2026-11-11T00:00:00Z","updated_at":"2026-11-11T00:00:00Z"},"assets":[{"id":1,"maker_id":1,"name":"Основа","category":"body","layer_order":10,"is_active":true,"image_url":"https://api.icc.local/api/assets/1/image","selected_layer_order":0}],"created_at":"2026-11-11T00:00:00Z","updated_at":"2026-11-11T00:00:00Z"}}'
+        status: 201
+        content: '{"data":{"id":1,"user_id":3,"character_id":1,"title":"Моя работа","is_visible":true,"image_url":"https://api.icc.local/api/posts/1/image","author":{"id":3,"name":"Пользователь ICC"},"likes_count":1,"comments_count":1,"comments":[{"id":1,"user_id":3,"post_id":1,"body":"Отличный образ!","author":{"id":3,"name":"Пользователь ICC"},"created_at":"2026-11-11T00:00:00Z"}],"created_at":"2026-11-11T00:00:00Z"}}'
         headers: []
         description: ''
       -
@@ -612,14 +559,14 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'api/characters/{id}'
+    uri: 'api/posts/{id}'
     metadata:
       custom: []
-      groupName: Персонажи
+      groupName: 'Публикации и реакции'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'DELETE /api/characters/{character}'
+      title: 'DELETE /api/posts/{post}'
       description: 'Удаление. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
       authenticated: true
       deprecated: false
@@ -631,7 +578,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the character.'
+        description: 'The ID of the post.'
         required: true
         example: 1
         type: integer
@@ -651,6 +598,350 @@ endpoints:
         custom: []
         status: 204
         content: '{}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Необходим токен доступа."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: '{"message":"Недостаточно прав."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: '{"message":"Запись не найдена."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 409
+        content: '{"message":"Недопустимый переход статуса."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: '{"message":"Ошибка валидации","errors":{"title":["Поле обязательно."]}}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/posts/{post_id}/comments'
+    metadata:
+      custom: []
+      groupName: 'Публикации и реакции'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'POST /api/posts/{post}/comments'
+      description: 'Добавление комментария. Доступ: авторизованный; свой объект/admin. Успех 201. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post_id:
+        custom: []
+        name: post_id
+        description: 'The ID of the post.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      post_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      body:
+        custom: []
+        name: body
+        description: 'Максимум 2000 символов.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      body: b
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: '{"data":{"id":1,"user_id":3,"post_id":1,"body":"Отличный образ!","author":{"id":3,"name":"Пользователь ICC"},"created_at":"2026-11-11T00:00:00Z"}}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Необходим токен доступа."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: '{"message":"Недостаточно прав."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: '{"message":"Запись не найдена."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 409
+        content: '{"message":"Недопустимый переход статуса."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: '{"message":"Ошибка валидации","errors":{"title":["Поле обязательно."]}}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/comments/{id}'
+    metadata:
+      custom: []
+      groupName: 'Публикации и реакции'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'DELETE /api/comments/{comment}'
+      description: 'Удаление. Доступ: авторизованный; свой объект/admin. Успех 204. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the comment.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 204
+        content: '{}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Необходим токен доступа."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: '{"message":"Недостаточно прав."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: '{"message":"Запись не найдена."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 409
+        content: '{"message":"Недопустимый переход статуса."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: '{"message":"Ошибка валидации","errors":{"title":["Поле обязательно."]}}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/posts/{post_id}/like'
+    metadata:
+      custom: []
+      groupName: 'Публикации и реакции'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'PUT /api/posts/{post}/like'
+      description: 'Поставить лайк. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post_id:
+        custom: []
+        name: post_id
+        description: 'The ID of the post.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      post_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"data":{"liked":true,"likes_count":1}}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Необходим токен доступа."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: '{"message":"Недостаточно прав."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: '{"message":"Запись не найдена."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 409
+        content: '{"message":"Недопустимый переход статуса."}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: '{"message":"Ошибка валидации","errors":{"title":["Поле обязательно."]}}'
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6g43cv8PD1aE5beadkZfhV6'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/posts/{post_id}/like'
+    metadata:
+      custom: []
+      groupName: 'Публикации и реакции'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'DELETE /api/posts/{post}/like'
+      description: 'Снять лайк. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      post_id:
+        custom: []
+        name: post_id
+        description: 'The ID of the post.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      post_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"data":{"liked":false,"likes_count":0}}'
         headers: []
         description: ''
       -

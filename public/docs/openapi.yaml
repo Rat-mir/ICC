@@ -22,6 +22,9 @@ tags:
   -
     name: 'Публикации и реакции'
     description: ''
+  -
+    name: 'Состояние сервера'
+    description: ''
 components:
   securitySchemes:
     default:
@@ -317,7 +320,7 @@ paths:
                 category:
                   type: string
                   description: ''
-                  example: hair
+                  example: background
                   enum:
                     - body
                     - face
@@ -329,7 +332,7 @@ paths:
                 status:
                   type: string
                   description: ''
-                  example: rejected
+                  example: revision
                   enum:
                     - draft
                     - pending
@@ -341,7 +344,7 @@ paths:
                 from:
                   type: string
                   description: validation.date.
-                  example: '2026-11-11T16:48:40'
+                  example: '2026-11-11T19:34:15'
                   nullable: true
                 to:
                   type: string
@@ -351,7 +354,7 @@ paths:
                 sort:
                   type: string
                   description: ''
-                  example: title
+                  example: created_at
                   enum:
                     - id
                     - title
@@ -532,7 +535,7 @@ paths:
                 decision:
                   type: string
                   description: ''
-                  example: reject
+                  example: approve
                   enum:
                     - approve
                     - reject
@@ -1047,7 +1050,7 @@ paths:
                 category:
                   type: string
                   description: ''
-                  example: clothes
+                  example: face
                   enum:
                     - body
                     - face
@@ -1059,7 +1062,7 @@ paths:
                 status:
                   type: string
                   description: ''
-                  example: pending
+                  example: revision
                   enum:
                     - draft
                     - pending
@@ -1071,7 +1074,7 @@ paths:
                 from:
                   type: string
                   description: validation.date.
-                  example: '2026-11-11T16:48:40'
+                  example: '2026-11-11T19:34:16'
                   nullable: true
                 to:
                   type: string
@@ -1081,7 +1084,7 @@ paths:
                 sort:
                   type: string
                   description: ''
-                  example: updated_at
+                  example: title
                   enum:
                     - id
                     - title
@@ -1091,7 +1094,7 @@ paths:
                 order:
                   type: string
                   description: ''
-                  example: desc
+                  example: asc
                   enum:
                     - asc
                     - desc
@@ -1443,56 +1446,6 @@ paths:
       parameters:
         -
           in: query
-          name: search
-          description: 'Параметр списка.'
-          example: Лунный
-          required: false
-          schema:
-            type: string
-            description: 'Параметр списка.'
-            example: Лунный
-        -
-          in: query
-          name: category
-          description: 'Параметр списка.'
-          example: body
-          required: false
-          schema:
-            type: string
-            description: 'Параметр списка.'
-            example: body
-        -
-          in: query
-          name: status
-          description: 'Параметр списка.'
-          example: approved
-          required: false
-          schema:
-            type: string
-            description: 'Параметр списка.'
-            example: approved
-        -
-          in: query
-          name: sort
-          description: 'Параметр списка.'
-          example: title
-          required: false
-          schema:
-            type: string
-            description: 'Параметр списка.'
-            example: title
-        -
-          in: query
-          name: order
-          description: 'Параметр списка.'
-          example: asc
-          required: false
-          schema:
-            type: string
-            description: 'Параметр списка.'
-            example: asc
-        -
-          in: query
           name: per_page
           description: 'Параметр списка.'
           example: 20
@@ -1690,7 +1643,7 @@ paths:
                 category:
                   type: string
                   description: ''
-                  example: body
+                  example: accessory
                   enum:
                     - body
                     - face
@@ -1702,7 +1655,7 @@ paths:
                 status:
                   type: string
                   description: ''
-                  example: rejected
+                  example: pending
                   enum:
                     - draft
                     - pending
@@ -1714,7 +1667,7 @@ paths:
                 from:
                   type: string
                   description: validation.date.
-                  example: '2026-11-11T16:48:40'
+                  example: '2026-11-11T19:34:16'
                   nullable: true
                 to:
                   type: string
@@ -1724,7 +1677,7 @@ paths:
                 sort:
                   type: string
                   description: ''
-                  example: title
+                  example: created_at
                   enum:
                     - id
                     - title
@@ -1881,7 +1834,7 @@ paths:
                 role:
                   type: string
                   description: ''
-                  example: user
+                  example: admin
                   enum:
                     - user
                     - creator
@@ -2691,7 +2644,7 @@ paths:
                 category:
                   type: string
                   description: ''
-                  example: face
+                  example: background
                   enum:
                     - body
                     - face
@@ -2703,7 +2656,7 @@ paths:
                 status:
                   type: string
                   description: ''
-                  example: rejected
+                  example: approved
                   enum:
                     - draft
                     - pending
@@ -2715,7 +2668,7 @@ paths:
                 from:
                   type: string
                   description: validation.date.
-                  example: '2026-11-11T16:48:40'
+                  example: '2026-11-11T19:34:15'
                   nullable: true
                 to:
                   type: string
@@ -2725,7 +2678,7 @@ paths:
                 sort:
                   type: string
                   description: ''
-                  example: created_at
+                  example: updated_at
                   enum:
                     - id
                     - title
@@ -2735,7 +2688,7 @@ paths:
                 order:
                   type: string
                   description: ''
-                  example: desc
+                  example: asc
                   enum:
                     - asc
                     - desc
@@ -2753,7 +2706,7 @@ paths:
                 mine:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: true
       security: []
     post:
@@ -3731,7 +3684,7 @@ paths:
                 is_active:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                 image:
                   type: string
                   format: binary
@@ -3885,7 +3838,7 @@ paths:
                 category:
                   type: string
                   description: ''
-                  example: accessory
+                  example: hair
                   enum:
                     - body
                     - face
@@ -3900,7 +3853,7 @@ paths:
                 is_active:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
                 image:
                   type: string
                   format: binary
@@ -4016,56 +3969,6 @@ paths:
       operationId: gETapicharacters
       description: 'Список. Доступ: авторизованный; свой объект/admin. Успех 200. Ошибки 401,403,404,409,422,429,500. message для ошибок, errors для 422.'
       parameters:
-        -
-          in: query
-          name: search
-          description: 'Параметр списка.'
-          example: Лунный
-          required: false
-          schema:
-            type: string
-            description: 'Параметр списка.'
-            example: Лунный
-        -
-          in: query
-          name: category
-          description: 'Параметр списка.'
-          example: body
-          required: false
-          schema:
-            type: string
-            description: 'Параметр списка.'
-            example: body
-        -
-          in: query
-          name: status
-          description: 'Параметр списка.'
-          example: approved
-          required: false
-          schema:
-            type: string
-            description: 'Параметр списка.'
-            example: approved
-        -
-          in: query
-          name: sort
-          description: 'Параметр списка.'
-          example: title
-          required: false
-          schema:
-            type: string
-            description: 'Параметр списка.'
-            example: title
-        -
-          in: query
-          name: order
-          description: 'Параметр списка.'
-          example: asc
-          required: false
-          schema:
-            type: string
-            description: 'Параметр списка.'
-            example: asc
         -
           in: query
           name: per_page
@@ -4389,7 +4292,7 @@ paths:
                 category:
                   type: string
                   description: ''
-                  example: background
+                  example: body
                   enum:
                     - body
                     - face
@@ -4401,7 +4304,7 @@ paths:
                 status:
                   type: string
                   description: ''
-                  example: pending
+                  example: rejected
                   enum:
                     - draft
                     - pending
@@ -4413,7 +4316,7 @@ paths:
                 from:
                   type: string
                   description: validation.date.
-                  example: '2026-11-11T16:48:40'
+                  example: '2026-11-11T19:34:15'
                   nullable: true
                 to:
                   type: string
@@ -4423,7 +4326,7 @@ paths:
                 sort:
                   type: string
                   description: ''
-                  example: title
+                  example: updated_at
                   enum:
                     - id
                     - title
@@ -4451,7 +4354,7 @@ paths:
                 mine:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: true
     post:
       summary: 'POST /api/characters'
@@ -5254,108 +5157,6 @@ paths:
         required: true
         schema:
           type: integer
-  /api/health:
-    get:
-      summary: 'GET /api/health'
-      operationId: gETapihealth
-      description: 'Проверка приложения и БД. Доступ: гость. Успех 200. Ошибки 401,403,404,409,422,429,500,503. message для ошибок, errors для 422.'
-      parameters: []
-      responses:
-        200:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  app: ICC
-                  time: '2026-11-11T00:00:00+00:00'
-                  database: ok
-                properties:
-                  app:
-                    type: string
-                    example: ICC
-                  time:
-                    type: string
-                    example: '2026-11-11T00:00:00+00:00'
-                  database:
-                    type: string
-                    example: ok
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Необходим токен доступа.'
-                properties:
-                  message:
-                    type: string
-                    example: 'Необходим токен доступа.'
-        403:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Недостаточно прав.'
-                properties:
-                  message:
-                    type: string
-                    example: 'Недостаточно прав.'
-        404:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Запись не найдена.'
-                properties:
-                  message:
-                    type: string
-                    example: 'Запись не найдена.'
-        409:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Недопустимый переход статуса.'
-                properties:
-                  message:
-                    type: string
-                    example: 'Недопустимый переход статуса.'
-        422:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: 'Ошибка валидации'
-                  errors:
-                    title:
-                      - 'Поле обязательно.'
-                properties:
-                  message:
-                    type: string
-                    example: 'Ошибка валидации'
-                  errors:
-                    type: object
-                    properties:
-                      title:
-                        type: array
-                        example:
-                          - 'Поле обязательно.'
-                        items:
-                          type: string
-      tags:
-        - 'Публикации и реакции'
-      security: []
   /api/posts:
     get:
       summary: 'GET /api/posts'
@@ -5700,7 +5501,7 @@ paths:
                 category:
                   type: string
                   description: ''
-                  example: accessory
+                  example: body
                   enum:
                     - body
                     - face
@@ -5712,7 +5513,7 @@ paths:
                 status:
                   type: string
                   description: ''
-                  example: revision
+                  example: approved
                   enum:
                     - draft
                     - pending
@@ -5724,7 +5525,7 @@ paths:
                 from:
                   type: string
                   description: validation.date.
-                  example: '2026-11-11T16:48:40'
+                  example: '2026-11-11T19:34:15'
                   nullable: true
                 to:
                   type: string
@@ -5734,7 +5535,7 @@ paths:
                 sort:
                   type: string
                   description: ''
-                  example: updated_at
+                  example: created_at
                   enum:
                     - id
                     - title
@@ -6819,3 +6620,58 @@ paths:
         required: true
         schema:
           type: integer
+  /api/health:
+    get:
+      summary: 'GET /api/health'
+      operationId: gETapihealth
+      description: 'Проверка приложения и БД. Доступ: гость. Успех 200. При недоступной БД возвращается 503 с database=unavailable.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  app: ICC
+                  time: '2026-11-11T00:00:00+00:00'
+                  database: ok
+                properties:
+                  app:
+                    type: string
+                    example: ICC
+                  time:
+                    type: string
+                    example: '2026-11-11T00:00:00+00:00'
+                  database:
+                    type: string
+                    example: ok
+        503:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  app: ICC
+                  database: unavailable
+                  driver: mysql
+                  server_version: null
+                properties:
+                  app:
+                    type: string
+                    example: ICC
+                  database:
+                    type: string
+                    example: unavailable
+                  driver:
+                    type: string
+                    example: mysql
+                  server_version:
+                    type: string
+                    example: null
+                    nullable: true
+      tags:
+        - 'Состояние сервера'
+      security: []

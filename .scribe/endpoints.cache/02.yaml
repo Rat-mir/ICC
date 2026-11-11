@@ -126,7 +126,7 @@ endpoints:
         name: category
         description: ''
         required: false
-        example: face
+        example: background
         type: string
         enumValues:
           - body
@@ -143,7 +143,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: rejected
+        example: approved
         type: string
         enumValues:
           - draft
@@ -160,7 +160,7 @@ endpoints:
         name: from
         description: validation.date.
         required: false
-        example: '2026-11-11T16:48:40'
+        example: '2026-11-11T19:34:15'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -182,7 +182,7 @@ endpoints:
         name: sort
         description: ''
         required: false
-        example: created_at
+        example: updated_at
         type: string
         enumValues:
           - id
@@ -197,7 +197,7 @@ endpoints:
         name: order
         description: ''
         required: false
-        example: desc
+        example: asc
         type: string
         enumValues:
           - asc
@@ -232,7 +232,7 @@ endpoints:
         name: mine
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -240,15 +240,15 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       search: b
-      category: face
-      status: rejected
-      from: '2026-11-11T16:48:40'
+      category: background
+      status: approved
+      from: '2026-11-11T19:34:15'
       to: '2052-12-04'
-      sort: created_at
-      order: desc
+      sort: updated_at
+      order: asc
       page: 22
       per_page: 1
-      mine: false
+      mine: true
     fileParameters: []
     responses:
       -
@@ -965,7 +965,7 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -986,7 +986,7 @@ endpoints:
       name: b
       category: face
       layer_order: 1
-      is_active: false
+      is_active: true
     fileParameters:
       image: null
     responses:
@@ -1099,7 +1099,7 @@ endpoints:
         name: category
         description: ''
         required: false
-        example: accessory
+        example: hair
         type: string
         enumValues:
           - body
@@ -1127,7 +1127,7 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -1146,9 +1146,9 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       name: b
-      category: accessory
+      category: hair
       layer_order: 1
-      is_active: true
+      is_active: false
     fileParameters:
       image: null
     responses:

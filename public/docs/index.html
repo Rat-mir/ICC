@@ -45,12 +45,12 @@
     </span>
 </a>
 <div class="tocify-wrapper">
-    
+
             <div class="lang-selector">
                                             <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                             <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                     </div>
-    
+
     <div class="search">
         <input type="text" class="search" id="input-search" placeholder="Search">
     </div>
@@ -180,10 +180,7 @@
                     <a href="#publikacii-i-reakcii">Публикации и реакции</a>
                 </li>
                                     <ul id="tocify-subheader-publikacii-i-reakcii" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="publikacii-i-reakcii-GETapi-health">
-                                <a href="#publikacii-i-reakcii-GETapi-health">GET /api/health</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="publikacii-i-reakcii-GETapi-posts">
+                                                    <li class="tocify-item level-2" data-unique="publikacii-i-reakcii-GETapi-posts">
                                 <a href="#publikacii-i-reakcii-GETapi-posts">GET /api/posts</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="publikacii-i-reakcii-GETapi-posts--id-">
@@ -209,6 +206,16 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="publikacii-i-reakcii-DELETEapi-posts--post_id--like">
                                 <a href="#publikacii-i-reakcii-DELETEapi-posts--post_id--like">DELETE /api/posts/{post}/like</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-sostoianie-servera" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="sostoianie-servera">
+                    <a href="#sostoianie-servera">Состояние сервера</a>
+                </li>
+                                    <ul id="tocify-subheader-sostoianie-servera" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="sostoianie-servera-GETapi-health">
+                                <a href="#sostoianie-servera-GETapi-health">GET /api/health</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -244,7 +251,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
         <h1 id="administrirovanie">Администрирование</h1>
 
-    
+
 
                                 <h2 id="administrirovanie-GETapi-admin-makers">GET /api/admin/makers</h2>
 
@@ -266,11 +273,11 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Accept: application/json" \
     --data "{
     \"search\": \"b\",
-    \"category\": \"hair\",
-    \"status\": \"rejected\",
-    \"from\": \"2026-11-11T16:48:40\",
+    \"category\": \"background\",
+    \"status\": \"revision\",
+    \"from\": \"2026-11-11T19:34:15\",
     \"to\": \"2052-12-04\",
-    \"sort\": \"title\",
+    \"sort\": \"created_at\",
     \"order\": \"asc\",
     \"page\": 22,
     \"per_page\": 1,
@@ -304,11 +311,11 @@ const headers = {
 
 let body = {
     "search": "b",
-    "category": "hair",
-    "status": "rejected",
-    "from": "2026-11-11T16:48:40",
+    "category": "background",
+    "status": "revision",
+    "from": "2026-11-11T19:34:15",
     "to": "2052-12-04",
-    "sort": "title",
+    "sort": "created_at",
     "order": "asc",
     "page": 22,
     "per_page": 1,
@@ -600,10 +607,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category"                data-endpoint="GETapi-admin-makers"
-               value="hair"
+               value="background"
                data-component="body">
     <br>
-<p>Example: <code>hair</code></p>
+<p>Example: <code>background</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>body</code></li> <li><code>face</code></li> <li><code>hair</code></li> <li><code>clothes</code></li> <li><code>accessory</code></li> <li><code>background</code></li></ul>
         </div>
@@ -614,10 +621,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="GETapi-admin-makers"
-               value="rejected"
+               value="revision"
                data-component="body">
     <br>
-<p>Example: <code>rejected</code></p>
+<p>Example: <code>revision</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>draft</code></li> <li><code>pending</code></li> <li><code>approved</code></li> <li><code>revision</code></li> <li><code>rejected</code></li> <li><code>hidden</code></li></ul>
         </div>
@@ -628,10 +635,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="from"                data-endpoint="GETapi-admin-makers"
-               value="2026-11-11T16:48:40"
+               value="2026-11-11T19:34:15"
                data-component="body">
     <br>
-<p>validation.date. Example: <code>2026-11-11T16:48:40</code></p>
+<p>validation.date. Example: <code>2026-11-11T19:34:15</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>to</code></b>&nbsp;&nbsp;
@@ -652,10 +659,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="sort"                data-endpoint="GETapi-admin-makers"
-               value="title"
+               value="created_at"
                data-component="body">
     <br>
-<p>Example: <code>title</code></p>
+<p>Example: <code>created_at</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>id</code></li> <li><code>title</code></li> <li><code>created_at</code></li> <li><code>updated_at</code></li></ul>
         </div>
@@ -740,7 +747,7 @@ Must be one of:
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"decision\": \"reject\",
+    \"decision\": \"approve\",
     \"review_comment\": \"b\"
 }"
 </code></pre></div>
@@ -758,7 +765,7 @@ const headers = {
 };
 
 let body = {
-    "decision": "reject",
+    "decision": "approve",
     "review_comment": "b"
 };
 
@@ -949,10 +956,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="decision"                data-endpoint="POSTapi-admin-makers--maker_id--review"
-               value="reject"
+               value="approve"
                data-component="body">
     <br>
-<p>Example: <code>reject</code></p>
+<p>Example: <code>approve</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>approve</code></li> <li><code>reject</code></li> <li><code>request-revision</code></li></ul>
         </div>
@@ -1202,12 +1209,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"search\": \"b\",
-    \"category\": \"clothes\",
-    \"status\": \"pending\",
-    \"from\": \"2026-11-11T16:48:40\",
+    \"category\": \"face\",
+    \"status\": \"revision\",
+    \"from\": \"2026-11-11T19:34:16\",
     \"to\": \"2052-12-04\",
-    \"sort\": \"updated_at\",
-    \"order\": \"desc\",
+    \"sort\": \"title\",
+    \"order\": \"asc\",
     \"page\": 22,
     \"per_page\": 1,
     \"mine\": false
@@ -1240,12 +1247,12 @@ const headers = {
 
 let body = {
     "search": "b",
-    "category": "clothes",
-    "status": "pending",
-    "from": "2026-11-11T16:48:40",
+    "category": "face",
+    "status": "revision",
+    "from": "2026-11-11T19:34:16",
     "to": "2052-12-04",
-    "sort": "updated_at",
-    "order": "desc",
+    "sort": "title",
+    "order": "asc",
     "page": 22,
     "per_page": 1,
     "mine": false
@@ -1549,10 +1556,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category"                data-endpoint="GETapi-admin-posts"
-               value="clothes"
+               value="face"
                data-component="body">
     <br>
-<p>Example: <code>clothes</code></p>
+<p>Example: <code>face</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>body</code></li> <li><code>face</code></li> <li><code>hair</code></li> <li><code>clothes</code></li> <li><code>accessory</code></li> <li><code>background</code></li></ul>
         </div>
@@ -1563,10 +1570,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="GETapi-admin-posts"
-               value="pending"
+               value="revision"
                data-component="body">
     <br>
-<p>Example: <code>pending</code></p>
+<p>Example: <code>revision</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>draft</code></li> <li><code>pending</code></li> <li><code>approved</code></li> <li><code>revision</code></li> <li><code>rejected</code></li> <li><code>hidden</code></li></ul>
         </div>
@@ -1577,10 +1584,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="from"                data-endpoint="GETapi-admin-posts"
-               value="2026-11-11T16:48:40"
+               value="2026-11-11T19:34:16"
                data-component="body">
     <br>
-<p>validation.date. Example: <code>2026-11-11T16:48:40</code></p>
+<p>validation.date. Example: <code>2026-11-11T19:34:16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>to</code></b>&nbsp;&nbsp;
@@ -1601,10 +1608,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="sort"                data-endpoint="GETapi-admin-posts"
-               value="updated_at"
+               value="title"
                data-component="body">
     <br>
-<p>Example: <code>updated_at</code></p>
+<p>Example: <code>title</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>id</code></li> <li><code>title</code></li> <li><code>created_at</code></li> <li><code>updated_at</code></li></ul>
         </div>
@@ -1615,10 +1622,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="order"                data-endpoint="GETapi-admin-posts"
-               value="desc"
+               value="asc"
                data-component="body">
     <br>
-<p>Example: <code>desc</code></p>
+<p>Example: <code>asc</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>asc</code></li> <li><code>desc</code></li></ul>
         </div>
@@ -2104,17 +2111,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.icc.local/api/admin/users?search=%D0%9B%D1%83%D0%BD%D0%BD%D1%8B%D0%B9&amp;category=body&amp;status=approved&amp;sort=title&amp;order=asc&amp;per_page=20&amp;page=1" \
+    --get "https://api.icc.local/api/admin/users?per_page=20&amp;page=1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"search\": \"b\",
-    \"category\": \"body\",
-    \"status\": \"rejected\",
-    \"from\": \"2026-11-11T16:48:40\",
+    \"category\": \"accessory\",
+    \"status\": \"pending\",
+    \"from\": \"2026-11-11T19:34:16\",
     \"to\": \"2052-12-04\",
-    \"sort\": \"title\",
+    \"sort\": \"created_at\",
     \"order\": \"desc\",
     \"page\": 22,
     \"per_page\": 1,
@@ -2129,11 +2136,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const params = {
-    "search": "Лунный",
-    "category": "body",
-    "status": "approved",
-    "sort": "title",
-    "order": "asc",
     "per_page": "20",
     "page": "1",
 };
@@ -2148,11 +2150,11 @@ const headers = {
 
 let body = {
     "search": "b",
-    "category": "body",
-    "status": "rejected",
-    "from": "2026-11-11T16:48:40",
+    "category": "accessory",
+    "status": "pending",
+    "from": "2026-11-11T19:34:16",
     "to": "2052-12-04",
-    "sort": "title",
+    "sort": "created_at",
     "order": "desc",
     "page": 22,
     "per_page": 1,
@@ -2334,66 +2336,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                             <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>search</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="search"                data-endpoint="GETapi-admin-users"
-               value="Лунный"
-               data-component="query">
-    <br>
-<p>Параметр списка. Example: <code>Лунный</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>category</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="category"                data-endpoint="GETapi-admin-users"
-               value="body"
-               data-component="query">
-    <br>
-<p>Параметр списка. Example: <code>body</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="status"                data-endpoint="GETapi-admin-users"
-               value="approved"
-               data-component="query">
-    <br>
-<p>Параметр списка. Example: <code>approved</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="sort"                data-endpoint="GETapi-admin-users"
-               value="title"
-               data-component="query">
-    <br>
-<p>Параметр списка. Example: <code>title</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>order</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="order"                data-endpoint="GETapi-admin-users"
-               value="asc"
-               data-component="query">
-    <br>
-<p>Параметр списка. Example: <code>asc</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -2437,10 +2379,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category"                data-endpoint="GETapi-admin-users"
-               value="body"
+               value="accessory"
                data-component="body">
     <br>
-<p>Example: <code>body</code></p>
+<p>Example: <code>accessory</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>body</code></li> <li><code>face</code></li> <li><code>hair</code></li> <li><code>clothes</code></li> <li><code>accessory</code></li> <li><code>background</code></li></ul>
         </div>
@@ -2451,10 +2393,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="GETapi-admin-users"
-               value="rejected"
+               value="pending"
                data-component="body">
     <br>
-<p>Example: <code>rejected</code></p>
+<p>Example: <code>pending</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>draft</code></li> <li><code>pending</code></li> <li><code>approved</code></li> <li><code>revision</code></li> <li><code>rejected</code></li> <li><code>hidden</code></li></ul>
         </div>
@@ -2465,10 +2407,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="from"                data-endpoint="GETapi-admin-users"
-               value="2026-11-11T16:48:40"
+               value="2026-11-11T19:34:16"
                data-component="body">
     <br>
-<p>validation.date. Example: <code>2026-11-11T16:48:40</code></p>
+<p>validation.date. Example: <code>2026-11-11T19:34:16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>to</code></b>&nbsp;&nbsp;
@@ -2489,10 +2431,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="sort"                data-endpoint="GETapi-admin-users"
-               value="title"
+               value="created_at"
                data-component="body">
     <br>
-<p>Example: <code>title</code></p>
+<p>Example: <code>created_at</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>id</code></li> <li><code>title</code></li> <li><code>created_at</code></li> <li><code>updated_at</code></li></ul>
         </div>
@@ -2577,7 +2519,7 @@ Must be one of:
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"role\": \"user\",
+    \"role\": \"admin\",
     \"is_blocked\": false
 }"
 </code></pre></div>
@@ -2595,7 +2537,7 @@ const headers = {
 };
 
 let body = {
-    "role": "user",
+    "role": "admin",
     "is_blocked": false
 };
 
@@ -2779,10 +2721,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="role"                data-endpoint="PATCHapi-admin-users--id-"
-               value="user"
+               value="admin"
                data-component="body">
     <br>
-<p>Example: <code>user</code></p>
+<p>Example: <code>admin</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>user</code></li> <li><code>creator</code></li> <li><code>admin</code></li></ul>
         </div>
@@ -2812,7 +2754,7 @@ Must be one of:
 
                 <h1 id="autentifikaciia">Аутентификация</h1>
 
-    
+
 
                                 <h2 id="autentifikaciia-POSTapi-register">POST /api/register</h2>
 
@@ -3656,7 +3598,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="meikery-i-png">Мейкеры и PNG</h1>
 
-    
+
 
                                 <h2 id="meikery-i-png-GETapi-makers">GET /api/makers</h2>
 
@@ -3676,15 +3618,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"search\": \"b\",
-    \"category\": \"face\",
-    \"status\": \"rejected\",
-    \"from\": \"2026-11-11T16:48:40\",
+    \"category\": \"background\",
+    \"status\": \"approved\",
+    \"from\": \"2026-11-11T19:34:15\",
     \"to\": \"2052-12-04\",
-    \"sort\": \"created_at\",
-    \"order\": \"desc\",
+    \"sort\": \"updated_at\",
+    \"order\": \"asc\",
     \"page\": 22,
     \"per_page\": 1,
-    \"mine\": false
+    \"mine\": true
 }"
 </code></pre></div>
 
@@ -3713,15 +3655,15 @@ const headers = {
 
 let body = {
     "search": "b",
-    "category": "face",
-    "status": "rejected",
-    "from": "2026-11-11T16:48:40",
+    "category": "background",
+    "status": "approved",
+    "from": "2026-11-11T19:34:15",
     "to": "2052-12-04",
-    "sort": "created_at",
-    "order": "desc",
+    "sort": "updated_at",
+    "order": "asc",
     "page": 22,
     "per_page": 1,
-    "mine": false
+    "mine": true
 };
 
 fetch(url, {
@@ -3997,10 +3939,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category"                data-endpoint="GETapi-makers"
-               value="face"
+               value="background"
                data-component="body">
     <br>
-<p>Example: <code>face</code></p>
+<p>Example: <code>background</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>body</code></li> <li><code>face</code></li> <li><code>hair</code></li> <li><code>clothes</code></li> <li><code>accessory</code></li> <li><code>background</code></li></ul>
         </div>
@@ -4011,10 +3953,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="GETapi-makers"
-               value="rejected"
+               value="approved"
                data-component="body">
     <br>
-<p>Example: <code>rejected</code></p>
+<p>Example: <code>approved</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>draft</code></li> <li><code>pending</code></li> <li><code>approved</code></li> <li><code>revision</code></li> <li><code>rejected</code></li> <li><code>hidden</code></li></ul>
         </div>
@@ -4025,10 +3967,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="from"                data-endpoint="GETapi-makers"
-               value="2026-11-11T16:48:40"
+               value="2026-11-11T19:34:15"
                data-component="body">
     <br>
-<p>validation.date. Example: <code>2026-11-11T16:48:40</code></p>
+<p>validation.date. Example: <code>2026-11-11T19:34:15</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>to</code></b>&nbsp;&nbsp;
@@ -4049,10 +3991,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="sort"                data-endpoint="GETapi-makers"
-               value="created_at"
+               value="updated_at"
                data-component="body">
     <br>
-<p>Example: <code>created_at</code></p>
+<p>Example: <code>updated_at</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>id</code></li> <li><code>title</code></li> <li><code>created_at</code></li> <li><code>updated_at</code></li></ul>
         </div>
@@ -4063,10 +4005,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="order"                data-endpoint="GETapi-makers"
-               value="desc"
+               value="asc"
                data-component="body">
     <br>
-<p>Example: <code>desc</code></p>
+<p>Example: <code>asc</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>asc</code></li> <li><code>desc</code></li></ul>
         </div>
@@ -4114,7 +4056,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -5481,8 +5423,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "name=b"\
     --form "category=face"\
     --form "layer_order=1"\
-    --form "is_active="\
-    --form "image=@C:\OSPanel\temp\PHP-8.4\default\phpDFA.tmp" </code></pre></div>
+    --form "is_active=1"\
+    --form "image=@C:\OSPanel\temp\PHP-8.4\default\phpF1F3.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5500,7 +5442,7 @@ const body = new FormData();
 body.append('name', 'b');
 body.append('category', 'face');
 body.append('layer_order', '1');
-body.append('is_active', '');
+body.append('is_active', '1');
 body.append('image', document.querySelector('input[name="image"]').files[0]);
 
 fetch(url, {
@@ -5735,7 +5677,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
@@ -5747,7 +5689,7 @@ Must be one of:
                value=""
                data-component="body">
     <br>
-<p>Must be a file. validation.image Размер файла не больше 5120 КБ. Example: <code>C:\OSPanel\temp\PHP-8.4\default\phpDFA.tmp</code></p>
+<p>Must be a file. validation.image Размер файла не больше 5120 КБ. Example: <code>C:\OSPanel\temp\PHP-8.4\default\phpF1F3.tmp</code></p>
         </div>
         </form>
 
@@ -5770,10 +5712,10 @@ Must be one of:
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "name=b"\
-    --form "category=accessory"\
+    --form "category=hair"\
     --form "layer_order=1"\
-    --form "is_active=1"\
-    --form "image=@C:\OSPanel\temp\PHP-8.4\default\phpE0B.tmp" </code></pre></div>
+    --form "is_active="\
+    --form "image=@C:\OSPanel\temp\PHP-8.4\default\phpF214.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5789,9 +5731,9 @@ const headers = {
 
 const body = new FormData();
 body.append('name', 'b');
-body.append('category', 'accessory');
+body.append('category', 'hair');
 body.append('layer_order', '1');
-body.append('is_active', '1');
+body.append('is_active', '');
 body.append('image', document.querySelector('input[name="image"]').files[0]);
 
 fetch(url, {
@@ -6003,10 +5945,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category"                data-endpoint="PUTapi-makers--maker_id--assets--id-"
-               value="accessory"
+               value="hair"
                data-component="body">
     <br>
-<p>Example: <code>accessory</code></p>
+<p>Example: <code>hair</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>body</code></li> <li><code>face</code></li> <li><code>hair</code></li> <li><code>clothes</code></li> <li><code>accessory</code></li> <li><code>background</code></li></ul>
         </div>
@@ -6042,7 +5984,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
@@ -6054,7 +5996,7 @@ Must be one of:
                value=""
                data-component="body">
     <br>
-<p>Must be a file. validation.image Размер файла не больше 5120 КБ. Example: <code>C:\OSPanel\temp\PHP-8.4\default\phpE0B.tmp</code></p>
+<p>Must be a file. validation.image Размер файла не больше 5120 КБ. Example: <code>C:\OSPanel\temp\PHP-8.4\default\phpF214.tmp</code></p>
         </div>
         </form>
 
@@ -6267,7 +6209,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="personazi">Персонажи</h1>
 
-    
+
 
                                 <h2 id="personazi-GETapi-characters">GET /api/characters</h2>
 
@@ -6283,21 +6225,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://api.icc.local/api/characters?search=%D0%9B%D1%83%D0%BD%D0%BD%D1%8B%D0%B9&amp;category=body&amp;status=approved&amp;sort=title&amp;order=asc&amp;per_page=20&amp;page=1" \
+    --get "https://api.icc.local/api/characters?per_page=20&amp;page=1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"search\": \"b\",
-    \"category\": \"background\",
-    \"status\": \"pending\",
-    \"from\": \"2026-11-11T16:48:40\",
+    \"category\": \"body\",
+    \"status\": \"rejected\",
+    \"from\": \"2026-11-11T19:34:15\",
     \"to\": \"2052-12-04\",
-    \"sort\": \"title\",
+    \"sort\": \"updated_at\",
     \"order\": \"desc\",
     \"page\": 22,
     \"per_page\": 1,
-    \"mine\": false
+    \"mine\": true
 }"
 </code></pre></div>
 
@@ -6308,11 +6250,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const params = {
-    "search": "Лунный",
-    "category": "body",
-    "status": "approved",
-    "sort": "title",
-    "order": "asc",
     "per_page": "20",
     "page": "1",
 };
@@ -6327,15 +6264,15 @@ const headers = {
 
 let body = {
     "search": "b",
-    "category": "background",
-    "status": "pending",
-    "from": "2026-11-11T16:48:40",
+    "category": "body",
+    "status": "rejected",
+    "from": "2026-11-11T19:34:15",
     "to": "2052-12-04",
-    "sort": "title",
+    "sort": "updated_at",
     "order": "desc",
     "page": 22,
     "per_page": 1,
-    "mine": false
+    "mine": true
 };
 
 fetch(url, {
@@ -6540,66 +6477,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                             <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
                                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>search</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="search"                data-endpoint="GETapi-characters"
-               value="Лунный"
-               data-component="query">
-    <br>
-<p>Параметр списка. Example: <code>Лунный</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>category</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="category"                data-endpoint="GETapi-characters"
-               value="body"
-               data-component="query">
-    <br>
-<p>Параметр списка. Example: <code>body</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="status"                data-endpoint="GETapi-characters"
-               value="approved"
-               data-component="query">
-    <br>
-<p>Параметр списка. Example: <code>approved</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>sort</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="sort"                data-endpoint="GETapi-characters"
-               value="title"
-               data-component="query">
-    <br>
-<p>Параметр списка. Example: <code>title</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>order</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="order"                data-endpoint="GETapi-characters"
-               value="asc"
-               data-component="query">
-    <br>
-<p>Параметр списка. Example: <code>asc</code></p>
-            </div>
-                                    <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -6643,10 +6520,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category"                data-endpoint="GETapi-characters"
-               value="background"
+               value="body"
                data-component="body">
     <br>
-<p>Example: <code>background</code></p>
+<p>Example: <code>body</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>body</code></li> <li><code>face</code></li> <li><code>hair</code></li> <li><code>clothes</code></li> <li><code>accessory</code></li> <li><code>background</code></li></ul>
         </div>
@@ -6657,10 +6534,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="GETapi-characters"
-               value="pending"
+               value="rejected"
                data-component="body">
     <br>
-<p>Example: <code>pending</code></p>
+<p>Example: <code>rejected</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>draft</code></li> <li><code>pending</code></li> <li><code>approved</code></li> <li><code>revision</code></li> <li><code>rejected</code></li> <li><code>hidden</code></li></ul>
         </div>
@@ -6671,10 +6548,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="from"                data-endpoint="GETapi-characters"
-               value="2026-11-11T16:48:40"
+               value="2026-11-11T19:34:15"
                data-component="body">
     <br>
-<p>validation.date. Example: <code>2026-11-11T16:48:40</code></p>
+<p>validation.date. Example: <code>2026-11-11T19:34:15</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>to</code></b>&nbsp;&nbsp;
@@ -6695,10 +6572,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="sort"                data-endpoint="GETapi-characters"
-               value="title"
+               value="updated_at"
                data-component="body">
     <br>
-<p>Example: <code>title</code></p>
+<p>Example: <code>updated_at</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>id</code></li> <li><code>title</code></li> <li><code>created_at</code></li> <li><code>updated_at</code></li></ul>
         </div>
@@ -6760,7 +6637,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -7758,181 +7635,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="publikacii-i-reakcii">Публикации и реакции</h1>
 
-    
-
-                                <h2 id="publikacii-i-reakcii-GETapi-health">GET /api/health</h2>
-
-<p>
-</p>
-
-<p>Проверка приложения и БД. Доступ: гость. Успех 200. Ошибки 401,403,404,409,422,429,500,503. message для ошибок, errors для 422.</p>
-
-<span id="example-requests-GETapi-health">
-<blockquote>Example request:</blockquote>
 
 
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "https://api.icc.local/api/health" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://api.icc.local/api/health"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-health">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;app&quot;: &quot;ICC&quot;,
-    &quot;time&quot;: &quot;2026-11-11T00:00:00+00:00&quot;,
-    &quot;database&quot;: &quot;ok&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Необходим токен доступа.&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (403):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Недостаточно прав.&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (404):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Запись не найдена.&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (409):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Недопустимый переход статуса.&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (422):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Ошибка валидации&quot;,
-    &quot;errors&quot;: {
-        &quot;title&quot;: [
-            &quot;Поле обязательно.&quot;
-        ]
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-health" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-health"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-health"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-health" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-health">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-health" data-method="GET"
-      data-path="api/health"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-health', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-health"
-                    onclick="tryItOut('GETapi-health');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-health"
-                    onclick="cancelTryOut('GETapi-health');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-health"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/health</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-health"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-health"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="publikacii-i-reakcii-GETapi-posts">GET /api/posts</h2>
+                                <h2 id="publikacii-i-reakcii-GETapi-posts">GET /api/posts</h2>
 
 <p>
 </p>
@@ -7950,11 +7655,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"search\": \"b\",
-    \"category\": \"accessory\",
-    \"status\": \"revision\",
-    \"from\": \"2026-11-11T16:48:40\",
+    \"category\": \"body\",
+    \"status\": \"approved\",
+    \"from\": \"2026-11-11T19:34:15\",
     \"to\": \"2052-12-04\",
-    \"sort\": \"updated_at\",
+    \"sort\": \"created_at\",
     \"order\": \"desc\",
     \"page\": 22,
     \"per_page\": 1,
@@ -7987,11 +7692,11 @@ const headers = {
 
 let body = {
     "search": "b",
-    "category": "accessory",
-    "status": "revision",
-    "from": "2026-11-11T16:48:40",
+    "category": "body",
+    "status": "approved",
+    "from": "2026-11-11T19:34:15",
     "to": "2052-12-04",
-    "sort": "updated_at",
+    "sort": "created_at",
     "order": "desc",
     "page": 22,
     "per_page": 1,
@@ -8284,10 +7989,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category"                data-endpoint="GETapi-posts"
-               value="accessory"
+               value="body"
                data-component="body">
     <br>
-<p>Example: <code>accessory</code></p>
+<p>Example: <code>body</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>body</code></li> <li><code>face</code></li> <li><code>hair</code></li> <li><code>clothes</code></li> <li><code>accessory</code></li> <li><code>background</code></li></ul>
         </div>
@@ -8298,10 +8003,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="GETapi-posts"
-               value="revision"
+               value="approved"
                data-component="body">
     <br>
-<p>Example: <code>revision</code></p>
+<p>Example: <code>approved</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>draft</code></li> <li><code>pending</code></li> <li><code>approved</code></li> <li><code>revision</code></li> <li><code>rejected</code></li> <li><code>hidden</code></li></ul>
         </div>
@@ -8312,10 +8017,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="from"                data-endpoint="GETapi-posts"
-               value="2026-11-11T16:48:40"
+               value="2026-11-11T19:34:15"
                data-component="body">
     <br>
-<p>validation.date. Example: <code>2026-11-11T16:48:40</code></p>
+<p>validation.date. Example: <code>2026-11-11T19:34:15</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>to</code></b>&nbsp;&nbsp;
@@ -8336,10 +8041,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="sort"                data-endpoint="GETapi-posts"
-               value="updated_at"
+               value="created_at"
                data-component="body">
     <br>
-<p>Example: <code>updated_at</code></p>
+<p>Example: <code>created_at</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>id</code></li> <li><code>title</code></li> <li><code>created_at</code></li> <li><code>updated_at</code></li></ul>
         </div>
@@ -8816,7 +8521,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "title=b"\
     --form "character_id=16"\
-    --form "image=@C:\OSPanel\temp\PHP-8.4\default\phpDD8.tmp" </code></pre></div>
+    --form "image=@C:\OSPanel\temp\PHP-8.4\default\phpF164.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -9049,7 +8754,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. validation.image Размер файла не больше 5120 КБ. Example: <code>C:\OSPanel\temp\PHP-8.4\default\phpDD8.tmp</code></p>
+<p>Must be a file. validation.image Размер файла не больше 5120 КБ. Example: <code>C:\OSPanel\temp\PHP-8.4\default\phpF164.tmp</code></p>
         </div>
         </form>
 
@@ -10074,9 +9779,147 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-            
+                <h1 id="sostoianie-servera">Состояние сервера</h1>
 
-        
+
+
+                                <h2 id="sostoianie-servera-GETapi-health">GET /api/health</h2>
+
+<p>
+</p>
+
+<p>Проверка приложения и БД. Доступ: гость. Успех 200. При недоступной БД возвращается 503 с database=unavailable.</p>
+
+<span id="example-requests-GETapi-health">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://api.icc.local/api/health" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api.icc.local/api/health"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-health">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;app&quot;: &quot;ICC&quot;,
+    &quot;time&quot;: &quot;2026-11-11T00:00:00+00:00&quot;,
+    &quot;database&quot;: &quot;ok&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (503):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;app&quot;: &quot;ICC&quot;,
+    &quot;database&quot;: &quot;unavailable&quot;,
+    &quot;driver&quot;: &quot;mysql&quot;,
+    &quot;server_version&quot;: null
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-health" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-health"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-health"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-health" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-health">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-health" data-method="GET"
+      data-path="api/health"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-health', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-health"
+                    onclick="tryItOut('GETapi-health');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-health"
+                    onclick="cancelTryOut('GETapi-health');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-health"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/health</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-health"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-health"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+
+
+
     </div>
     <div class="dark-box">
                     <div class="lang-selector">

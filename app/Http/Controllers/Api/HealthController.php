@@ -5,15 +5,11 @@ class HealthController {
     /**
      * GET /api/health
      *
-     * Проверка приложения и БД. Доступ: гость. Успех 200. Ошибки 401,403,404,409,422,429,500,503. message для ошибок, errors для 422.
-     * @group Публикации и реакции
+     * Проверка приложения и БД. Доступ: гость. Успех 200. При недоступной БД возвращается 503 с database=unavailable.
+     * @group Состояние сервера
      * @unauthenticated
      * @response 200 {"app":"ICC","time":"2026-11-11T00:00:00+00:00","database":"ok"}
-     * @response 401 {"message":"Необходим токен доступа."}
-     * @response 403 {"message":"Недостаточно прав."}
-     * @response 404 {"message":"Запись не найдена."}
-     * @response 409 {"message":"Недопустимый переход статуса."}
-     * @response 422 {"message":"Ошибка валидации","errors":{"title":["Поле обязательно."]}}
+     * @response 503 {"app":"ICC","database":"unavailable","driver":"mysql","server_version":null}
      */
     public function __invoke() {
         try { DB::select('select 1'); $ok=true; } catch(\Throwable $e) { $ok=false; }
