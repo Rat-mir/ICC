@@ -19,7 +19,18 @@ class ImageService {
         if(!$size || $size[2]!==IMAGETYPE_PNG) throw ValidationException::withMessages(['assets'=>['PNG отсутствует или повреждён.']]);
         return [$size[0],$size[1]];
     }
-    public function response(string $path) {
+    public function response(string $path, bool $back = false, ?array $parts = null) {
+        if ($vector = VectorArtwork::descriptor($path)) {
+            abort_if($back && !$vector['back'], 404);
+            $svg = isset($vector['dicebear'])
+                ? DiceBearArtwork::svg($vector['style'], $parts ?? [$vector])
+                : VectorArtwork::svg($vector, $back);
+            return response($svg, 200, [
+                'Content-Type' => 'image/svg+xml', 'X-Content-Type-Options' => 'nosniff',
+                'Content-Security-Policy' => "default-src 'none'; sandbox", 'Cache-Control' => 'private, no-store',
+            ]);
+        }
+        abort_if($back, 404);
         abort_unless(Storage::disk('local')->exists($path),404);
         return response(Storage::disk('local')->get($path),200,['Content-Type'=>'image/png','X-Content-Type-Options'=>'nosniff','Cache-Control'=>'private, no-store']);
     }

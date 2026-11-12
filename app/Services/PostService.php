@@ -13,14 +13,23 @@ class PostService {
             ->paginate($f['per_page']??20)->withQueryString();
     }
     public function visible(Post $post,?User $user): void { abort_unless($post->is_visible || ($user && ($user->isAdmin() || $user->id===$post->user_id)),404); }
-    public function detail(Post $post,?User $user): Post { $this->visible($post,$user); return $post->load(['user','comments.user'])->loadCount(['likes','comments']); }
+    public function detail(Post $post,?User $user): Post {
+        $this->visible($post,$user);
+        $post->load(['user','comments.user'])->loadCount(['likes','comments']);
+        $post->setAttribute('liked', $user !== null && $post->likes()->where('user_id', $user->id)->exists());
+        return $post;
+    }
     public function create(User $user,array $data): Post {
         if(!empty($data['character_id'])) Gate::forUser($user)->authorize('view',Character::findOrFail($data['character_id']));
         $path=$this->images->store($data['image'],'posts');
         try {
-            $post=new Post(['title'=>$data['title']]); $post->user()->associate($user); $post->character_id=$data['character_id']??null;
+            $post=new Post(['title'=>$data['title'], 'body'=>$data['body']??null]); $post->user()->associate($user); $post->character_id=$data['character_id']??null;
             $post->image_path=$path; $post->save(); return $post->load('user')->loadCount(['likes','comments']);
         } catch(\Throwable $e) { Storage::disk('local')->delete($path); throw $e; }
+    }
+    public function update(Post $post, User $user, array $data): Post {
+        $post->update($data);
+        return $this->detail($post, $user);
     }
     public function delete(Post $post): void { $path=$post->image_path; $post->delete(); Storage::disk('local')->delete($path); }
     public function hide(Post $post): Post { $post->is_visible=false; $post->save(); return $post; }

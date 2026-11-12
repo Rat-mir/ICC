@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable {
+    public const BUILTIN_MAKER_EMAIL = 'builtin-makers@icc.invalid';
     use HasApiTokens, HasFactory, Notifiable;
     protected $fillable = ['name', 'email', 'password'];
     protected $hidden = ['password', 'remember_token'];

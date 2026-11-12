@@ -14,6 +14,15 @@ class CharacterService {
             $assets=$maker->assets()->where('is_active',true)->whereIn('id',$data['asset_ids'])->get();
             if($assets->count()!==count($data['asset_ids'])) throw ValidationException::withMessages(['asset_ids'=>['Все элементы должны быть активны и принадлежать одному мейкеру.']]);
             if($assets->pluck('category')->unique()->count()!==$assets->count()) throw ValidationException::withMessages(['asset_ids'=>['Выберите не более одного элемента каждой категории.']]);
+            if ($maker->vector_style) {
+                $imported = in_array($maker->vector_style, DiceBearArtwork::REVIEW_STYLES, true);
+                $required = $imported ? DiceBearArtwork::required($maker->vector_style) : ['body', 'face'];
+                if (array_diff($required, $assets->pluck('category')->all())) {
+                    $message = $imported ? 'Выберите обязательные части персонажа.' : 'Выберите основу и глаза.';
+                    throw ValidationException::withMessages(['asset_ids' => [$message]]);
+                }
+                $data['asset_ids'] = $assets->sortBy('layer_order')->modelKeys();
+            }
             if($character) $character=Character::lockForUpdate()->findOrFail($character->id);
             else { $character=new Character; $character->user()->associate($user); }
             $character->name=$data['name']; $character->maker()->associate($maker); $character->save();

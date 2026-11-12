@@ -57,6 +57,11 @@ class PostController {
      * @response 422 {"message":"Ошибка валидации","errors":{"title":["Поле обязательно."]}}
      */
     public function store(PostRequest $r) { return (new PostResource($this->service->create($r->user(),$r->validated())))->response()->setStatusCode(201); }
+    public function update(PostRequest $request, Post $post): PostResource
+    {
+        Gate::authorize('update', $post);
+        return new PostResource($this->service->update($post, $request->user(), $request->validated()));
+    }
     /**
      * DELETE /api/posts/{post}
      *

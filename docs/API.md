@@ -29,17 +29,18 @@ Authorization: Bearer <token>; Accept: application/json. JSON-тело: Content-
 | POST | /api/login | AuthController@login | Вход и токен | гость | {"email": "creator@icc.test", "password": "DemoPass123!"} | 200 | 401,403,404,409,422,429,500 |
 | POST | /api/logout | AuthController@logout | Отзыв токена | авторизованный; свой объект/admin | — | 204 | 401,403,404,409,422,429,500 |
 | GET | /api/makers | MakerController@index | Список | approved всем; приватные автору/admin | — | 200 | 401,403,404,409,422,429,500 |
-| POST | /api/makers | MakerController@store | Создание | creator/admin; владелец | {"title": "Новый мейкер", "description": "Прозрачные PNG 512×512."} | 201 | 401,403,404,409,422,429,500 |
+| POST | /api/makers | MakerController@store | Создание | вошедший пользователь; правки владелец или admin | {"title": "Новый мейкер", "description": "Прозрачные PNG 512×512."} | 201 | 401,403,404,409,422,429,500 |
 | GET | /api/makers/{maker} | MakerController@show | Карточка | approved всем; приватные автору/admin | — | 200 | 401,403,404,409,422,429,500 |
-| PUT | /api/makers/{maker} | MakerController@update | Изменение | creator/admin; владелец | {"title": "Новый мейкер", "description": "Прозрачные PNG 512×512."} | 200 | 401,403,404,409,422,429,500 |
-| DELETE | /api/makers/{maker} | MakerController@destroy | Удаление | creator/admin; владелец | — | 204 | 401,403,404,409,422,429,500 |
-| POST | /api/makers/{maker}/assets | AssetController@store | Создание | creator/admin; владелец | {"name": "Основа", "category": "body", "layer_order": 10, "image": "<PNG>"} | 201 | 401,403,404,409,422,429,500 |
-| PUT | /api/makers/{maker}/assets/{asset} | AssetController@update | Изменение | creator/admin; владелец | {"name": "Основа", "category": "body", "layer_order": 10} | 200 | 401,403,404,409,422,429,500 |
-| DELETE | /api/makers/{maker}/assets/{asset} | AssetController@destroy | Удаление | creator/admin; владелец | — | 204 | 401,403,404,409,422,429,500 |
-| POST | /api/makers/{maker}/submit | MakerController@submit | Отправить на модерацию | creator/admin; владелец | — | 200 | 401,403,404,409,422,429,500 |
+| PUT | /api/makers/{maker} | MakerController@update | Изменение | вошедший пользователь; правки владелец или admin | {"title": "Новый мейкер", "description": "Прозрачные PNG 512×512."} | 200 | 401,403,404,409,422,429,500 |
+| DELETE | /api/makers/{maker} | MakerController@destroy | Удаление | вошедший пользователь; правки владелец или admin | — | 204 | 401,403,404,409,422,429,500 |
+| POST | /api/makers/{maker}/assets | AssetController@store | Создание | вошедший пользователь; правки владелец или admin | {"name": "Основа", "category": "body", "layer_order": 10, "image": "<PNG>"} | 201 | 401,403,404,409,422,429,500 |
+| PUT | /api/makers/{maker}/assets/{asset} | AssetController@update | Изменение | вошедший пользователь; правки владелец или admin | {"name": "Основа", "category": "body", "layer_order": 10} | 200 | 401,403,404,409,422,429,500 |
+| DELETE | /api/makers/{maker}/assets/{asset} | AssetController@destroy | Удаление | вошедший пользователь; правки владелец или admin | — | 204 | 401,403,404,409,422,429,500 |
+| POST | /api/makers/{maker}/submit | MakerController@submit | Отправить на модерацию | вошедший пользователь; правки владелец или admin | — | 200 | 401,403,404,409,422,429,500 |
 | GET | /api/posts | PostController@index | Список | видимые всем; скрытые автору/admin | — | 200 | 401,403,404,409,422,429,500 |
 | POST | /api/posts | PostController@store | Создание | авторизованный; свой объект/admin | {"title": "Мой герой", "image": "<PNG>", "character_id": 1} | 201 | 401,403,404,409,422,429,500 |
 | GET | /api/posts/{post} | PostController@show | Карточка | видимые всем; скрытые автору/admin | — | 200 | 401,403,404,409,422,429,500 |
+| PATCH | /api/posts/{post} | PostController@update | Изменить название и описание | владелец или admin | {"title":"Новый образ","body":"Описание"} | 200 | 401,403,404,422 |
 | DELETE | /api/posts/{post} | PostController@destroy | Удаление | авторизованный; свой объект/admin | — | 204 | 401,403,404,409,422,429,500 |
 | POST | /api/posts/{post}/comments | InteractionController@comment | Добавление комментария | авторизованный; свой объект/admin | {"body": "Отличный образ!"} | 201 | 401,403,404,409,422,429,500 |
 | GET | /api/posts/{post}/image | PostController@image | PNG с проверкой доступа | видимые всем; скрытые автору/admin | — | 200 | 401,403,404,409,422,429,500 |
@@ -207,3 +208,12 @@ Comment
 
 
 Автоматическая документация Scribe: https://api.icc.local/docs/ (HTML, OpenAPI, Postman). Генерация: php artisan scribe:generate.
+
+## Векторные наборы и публикации
+
+- У встроенного мейкера `vector_style` содержит идентификатор стиля. У PNG-мейкера поле равно `null`.
+- `assets[].vector` содержит `style`, `category`, `variant`, `color` для SVG-слоя. Выбранные варианты передаются как обычные `asset_ids`. Сервер сохраняет их в порядке слоёв мейкера.
+- `GET /api/assets/{id}/image` возвращает PNG или SVG. Загрузка пользовательских слоёв принимает PNG.
+- `POST /api/posts` принимает PNG и необязательные `body` (до 3000 символов) и `character_id`. `PATCH /api/posts/{post}` принимает `title` и `body` в JSON. В деталях `liked` показывает реакцию текущего пользователя.
+- `GET /api/user` и ответы входа и регистрации возвращают `is_creator`. Значок присваивается при первой успешной отправке заявки, роль и токен сохраняются.
+- `GET /api/makers` по-прежнему принимает `category`, `search`, `sort`, `order`, `page` и `per_page`.

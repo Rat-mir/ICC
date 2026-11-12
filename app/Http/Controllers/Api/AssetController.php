@@ -3,7 +3,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\{Maker,Asset};
 use App\Http\Requests\AssetRequest;
 use App\Http\Resources\AssetResource;
-use App\Services\{MakerService,ImageService};
+use App\Services\{MakerService,ImageService,DiceBearArtwork};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 class AssetController {
@@ -63,5 +63,21 @@ class AssetController {
      * @response 409 {"message":"Недопустимый переход статуса."}
      * @response 422 {"message":"Ошибка валидации","errors":{"title":["Поле обязательно."]}}
      */
-    public function image(Request $r,Asset $asset) { Gate::forUser($r->user())->authorize('view',$asset->maker); if(!$asset->is_active) abort_unless($r->user() && ($r->user()->isAdmin() || $r->user()->id===$asset->maker->user_id),404); return $this->images->response($asset->file_path); }
+    public function image(Request $r, Asset $asset) {
+        Gate::forUser($r->user())->authorize('view', $asset->maker);
+        if (!$asset->is_active) {
+            abort_unless($r->user() && ($r->user()->isAdmin() || $r->user()->id === $asset->maker->user_id), 404);
+        }
+        $parts = null;
+        if (DiceBearArtwork::supports($asset->maker->vector_style) && $r->has('parts')) {
+            $raw = $r->query('parts');
+            abort_unless(is_string($raw) && preg_match('/^\d{1,18}(,\d{1,18}){0,29}$/D', $raw), 422);
+            $ids = explode(',', $raw);
+            $parts = $asset->maker->assets()->where('is_active', true)->whereKey($ids)->get()
+                ->map(fn (Asset $part) => DiceBearArtwork::descriptor($part->file_path))->all();
+            abort_if(count($parts) !== count($ids) || in_array(null, $parts, true)
+                || count(array_unique(array_column($parts, 'category'))) !== count($parts), 422);
+        }
+        return $this->images->response($asset->file_path, $r->query('plane') === 'back', $parts);
+    }
 }

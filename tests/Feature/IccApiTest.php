@@ -54,17 +54,98 @@ class IccApiTest extends TestCase {
         $this->maker(status:'approved'); $this->maker(status:'pending'); $this->maker(status:'hidden');
         $this->getJson('/api/makers')->assertOk()->assertJsonCount(1,'data')->assertJsonPath('data.0.status','approved')->assertJsonPath('meta.total',1);
     }
-    public function test_maker_creation_requires_creator_role(): void {
-        Sanctum::actingAs(User::factory()->create());
-        $this->postJson('/api/makers',['title'=>'Новый','description'=>'Описание'])->assertForbidden();
-        Sanctum::actingAs($owner=$this->creator());
+    public function test_user_gets_creator_badge_after_successful_submission(): void {
+        $this->postJson('/api/makers',['title'=>'Новый','description'=>'Описание'])->assertUnauthorized();
+        Sanctum::actingAs($owner=User::factory()->create());
         $id=$this->postJson('/api/makers',['title'=>'Новый','description'=>'Описание'])->assertCreated()->assertJsonPath('data.status','draft')->json('data.id');
         $this->assertDatabaseHas('makers',['id'=>$id,'user_id'=>$owner->id]);
+        $this->getJson('/api/user')->assertJsonPath('data.is_creator', false);
+        $this->postJson("/api/makers/$id/submit")->assertUnprocessable();
+        $this->complete(Maker::findOrFail($id));
+        $this->postJson("/api/makers/$id/submit")->assertOk();
+        Sanctum::actingAs($owner->fresh());
+        $this->getJson('/api/user')->assertJsonPath('data.is_creator', true)->assertJsonPath('data.role', 'user');
     }
     public function test_maker_owner_policy_and_missing_record(): void {
         $maker=$this->maker(); Sanctum::actingAs($this->creator());
         $this->patchJson('/api/makers/'.$maker->id,['title'=>'Чужой'])->assertForbidden();
         $this->getJson('/api/makers/99999')->assertNotFound()->assertJsonPath('message','Запись не найдена.');
+    }
+
+    public function test_builtin_makers_have_svg_layers_and_preserve_selected_shades(): void
+    {
+        $demoMaker = Maker::factory()->create([
+            'description' => \App\Services\DemoArtwork::MAKER_DESCRIPTION, 'status' => 'approved',
+            'user_id' => User::factory()->create(['email' => 'creator@icc.test'])->id,
+        ]);
+        $demoPost = Post::factory()->create(['image_path' => 'demo/post-0.png']);
+        $publicPost = Post::factory()->create();
+        $this->seed(\Database\Seeders\VectorMakerSeeder::class);
+        $this->seed(\Database\Seeders\VectorMakerSeeder::class);
+        $this->getJson('/api/makers')->assertOk()->assertJsonPath('meta.total', 4);
+        $this->getJson("/api/makers/$demoMaker->id")->assertOk();
+        $this->getJson('/api/posts')->assertOk()->assertJsonPath('meta.total', 1)
+            ->assertJsonPath('data.0.id', $publicPost->id);
+        $this->getJson("/api/posts/$demoPost->id")->assertNotFound();
+        $this->assertDatabaseMissing('makers', ['vector_style' => 'pony']);
+        $maker = Maker::where('vector_style', 'adventurer')->firstOrFail();
+        $body = $maker->assets()->where('category', 'body')->firstOrFail();
+        $face = $maker->assets()->where('category', 'face')->firstOrFail();
+        $hair = $maker->assets()->where('category', 'hair')->skip(1)->firstOrFail();
+        $this->get("/api/assets/$hair->id/image")
+            ->assertOk()->assertHeader('Content-Type', 'image/svg+xml')->assertSee('<svg', false);
+        $this->get("/api/assets/$hair->id/image?parts=$hair->id,$body->id,$face->id")
+            ->assertOk()->assertHeader('Content-Type', 'image/svg+xml')->assertSee('<path', false);
+        $this->get("/api/assets/$face->id/image?plane=back")->assertNotFound();
+
+        Sanctum::actingAs(User::factory()->create());
+        $id = $this->postJson('/api/characters', [
+            'maker_id' => $maker->id, 'name' => 'Портрет', 'asset_ids' => [$hair->id, $face->id, $body->id],
+        ])->assertCreated()->json('data.id');
+        $this->getJson("/api/characters/$id")->assertOk()
+            ->assertJsonPath('data.assets.0.id', $body->id)
+            ->assertJsonPath('data.assets.1.id', $hair->id)
+            ->assertJsonPath('data.assets.1.vector.color', '#e5d7a3');
+    }
+
+    public function test_imported_maker_is_published_only_after_admin_approval(): void
+    {
+        $this->seed(\Database\Seeders\VectorMakerSeeder::class);
+        $maker = Maker::where('vector_style', 'clay')->firstOrFail();
+        $public = "/api/makers?search=Clay";
+        $this->getJson($public)->assertOk()->assertJsonPath('meta.total', 0);
+        $this->getJson("/api/makers/$maker->id")->assertForbidden();
+
+        Sanctum::actingAs($this->admin());
+        $this->getJson('/api/admin/makers?search=Clay&status=pending')->assertOk()
+            ->assertJsonPath('data.0.id', $maker->id)->assertJsonPath('data.0.status', 'pending');
+        $assets = collect($this->getJson("/api/makers/$maker->id")->assertOk()->json('data.assets'));
+        $parts = $assets->filter(fn ($asset) => $asset['vector']['required'] || $asset['category'] === 'background')
+            ->unique('category')->pluck('id')->values()->all();
+        $this->get('/api/assets/'.$parts[0].'/image?parts='.implode(',', $parts))
+            ->assertOk()->assertHeader('Content-Type', 'image/svg+xml');
+        $this->postJson("/api/admin/makers/$maker->id/review", ['decision' => 'approve'])
+            ->assertOk()->assertJsonPath('data.status', 'approved');
+
+        $this->seed(\Database\Seeders\VectorMakerSeeder::class);
+        Sanctum::actingAs(User::factory()->create());
+        $this->getJson($public)->assertOk()->assertJsonPath('data.0.id', $maker->id);
+        $this->postJson('/api/characters', [
+            'maker_id' => $maker->id, 'name' => 'Персонаж', 'asset_ids' => $parts,
+        ])->assertCreated();
+    }
+
+    public function test_post_author_can_edit_caption_and_reader_sees_own_like(): void
+    {
+        $owner = User::factory()->create();
+        $post = Post::factory()->for($owner)->create();
+        Sanctum::actingAs(User::factory()->create());
+        $this->patchJson("/api/posts/$post->id", ['title' => 'Чужая публикация'])->assertForbidden();
+        Sanctum::actingAs($owner);
+        $this->patchJson("/api/posts/$post->id", ['title' => 'Образ', 'body' => 'Описание образа'])
+            ->assertOk()->assertJsonPath('data.body', 'Описание образа');
+        $this->putJson("/api/posts/$post->id/like")->assertSuccessful();
+        $this->getJson("/api/posts/$post->id")->assertOk()->assertJsonPath('data.liked', true);
     }
     public function test_owner_sees_only_own_drafts_in_mine(): void {
         $owner=$this->creator(); $this->maker($owner); $this->maker();

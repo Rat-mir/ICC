@@ -8,7 +8,7 @@ export class ApiError extends Error {
 }
 export async function api(path, options={}) {
   const {method='GET', body, binary=false}=options;
-  const headers={Accept: binary ? 'image/png' : 'application/json'};
+  const headers={Accept: binary ? 'image/png, image/svg+xml' : 'application/json'};
   const requestToken=session.token;
   if (requestToken) headers.Authorization='Bearer '+requestToken;
   const multipart=body instanceof FormData;
@@ -25,6 +25,6 @@ export async function api(path, options={}) {
   return binary ? response.blob() : response.json();
 }
 export async function imageBlob(url) {
-  const path=new URL(url).pathname.replace(/^\/api/,'');
-  return URL.createObjectURL(await api(path,{binary:true}));
+  const address=new URL(url);
+  return URL.createObjectURL(await api(address.pathname.replace(/^\/api/,'')+address.search,{binary:true}));
 }

@@ -26,7 +26,7 @@ class AdminUserController {
      * @response 409 {"message":"Недопустимый переход статуса."}
      * @response 422 {"message":"Ошибка валидации","errors":{"title":["Поле обязательно."]}}
      */
-    public function index(CatalogRequest $r) { return UserResource::collection(User::latest()->paginate($r->integer('per_page',20))->withQueryString()); }
+    public function index(CatalogRequest $r) { return UserResource::collection(User::where('email','<>',User::BUILTIN_MAKER_EMAIL)->latest()->paginate($r->integer('per_page',20))->withQueryString()); }
     /**
      * PATCH /api/admin/users/{user}
      *
@@ -41,6 +41,7 @@ class AdminUserController {
      * @response 422 {"message":"Ошибка валидации","errors":{"title":["Поле обязательно."]}}
      */
     public function update(UserAdminRequest $r,User $user) {
+        abort_if($user->email === User::BUILTIN_MAKER_EMAIL, 404);
         if($user->id===$r->user()->id) throw new BusinessException('Нельзя менять собственную роль или блокировать свой аккаунт.');
         DB::transaction(function()use($r,$user) {
             $user=User::lockForUpdate()->findOrFail($user->id);

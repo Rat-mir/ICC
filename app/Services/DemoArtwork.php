@@ -2,6 +2,11 @@
 namespace App\Services;
 use Illuminate\Support\Facades\Storage;
 class DemoArtwork {
+    public const MAKER_DESCRIPTION = 'Соберите собственного героя: выберите слои, настройте их порядок и сохраните образ. Авторские демонстрационные PNG 512×512.';
+
+    public static function postPaths(): array {
+        return array_map(static fn (int $index) => "demo/post-$index.png", range(0, 9));
+    }
     /** Original procedural demo artwork; transparent layers all use a 512px canvas. */
     public function layer(string $category,int $variant=0): string {
         $im=imagecreatetruecolor(512,512); imagealphablending($im,false);

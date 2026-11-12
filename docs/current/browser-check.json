@@ -1,0 +1,30 @@
+{
+  "health": {
+    "app": "ICC",
+    "time": "2026-11-12T23:21:44+00:00",
+    "database": "ok",
+    "driver": "mysql",
+    "server_version": "8.4.7"
+  },
+  "cards": [
+    "Croodles",
+    "Pixel Art",
+    "Adventurer",
+    "Critters",
+    "Lorelei"
+  ],
+  "pending": 31,
+  "approved": [
+    "Croodles"
+  ],
+  "validationStatus": 422,
+  "saved": [
+    "01-catalog",
+    "02-editor",
+    "06-login",
+    "03-pending",
+    "04-review",
+    "07-review-validation",
+    "05-approved"
+  ]
+}

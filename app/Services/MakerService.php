@@ -10,14 +10,23 @@ class MakerService {
     public function __construct(private ImageService $images) {}
     public function list(array $f,?User $user,bool $admin=false) {
         $q=Maker::with('creator')->withCount(['assets'=>fn($q)=>$q->where('is_active',true),'characters']);
-        if($admin) { /* Explicit admin route only. */ }
+        if($admin) $q->where(fn ($query) => $query->whereNull('vector_style')
+                ->orWhereIn('vector_style', DiceBearArtwork::REVIEW_STYLES))
+            ->where('status','<>',MakerStatus::Draft->value)
+            ->where('user_id','<>',$user->id);
         elseif(!empty($f['mine']) && $user) $q->where('user_id',$user->id);
-        else $q->where('status',MakerStatus::Approved->value);
+        else $q->where('status',MakerStatus::Approved->value)
+            ->where(fn ($query) => $query->whereNull('vector_style')
+                ->orWhereNotIn('vector_style', ['portrait', ...array_keys(VectorArtwork::STYLES), ...DiceBearArtwork::ARCHIVED_STYLES]))
+            ->where(fn ($query) => $query->where('description', '<>', DemoArtwork::MAKER_DESCRIPTION)
+                ->orWhereDoesntHave('creator', fn ($author) => $author->where('email', 'creator@icc.test')));
         return $q->search($f['search']??null)
             ->when($f['status']??null,fn($q,$v)=>$q->where('status',$v))
             ->when($f['category']??null,fn($q,$v)=>$q->whereHas('assets',fn($q)=>$q->where('category',$v)->where('is_active',true)))
             ->when($f['from']??null,fn($q,$v)=>$q->whereDate('created_at','>=',$v))
             ->when($f['to']??null,fn($q,$v)=>$q->whereDate('created_at','<=',$v))
+            ->when(!$admin && empty($f['mine']) && empty($f['sort']), fn($q) => $q->orderByRaw('CASE WHEN vector_style IS NULL THEN 1 ELSE 0 END'))
+            ->when($admin && empty($f['sort']), fn($q) => $q->orderByRaw('CASE WHEN status = ? THEN 0 ELSE 1 END', [MakerStatus::Pending->value]))
             ->orderBy($f['sort']??'created_at',$f['order']??'desc')->orderBy('id')
             ->paginate($f['per_page']??20)->withQueryString();
     }
@@ -70,6 +79,15 @@ class MakerService {
     }
     private function complete(Maker $maker): void {
         $assets=$maker->assets()->where('is_active',true)->get();
+        if (in_array($maker->vector_style, DiceBearArtwork::REVIEW_STYLES, true)) {
+            $required = ['background', ...DiceBearArtwork::required($maker->vector_style)];
+            $parts = $assets->map(fn (Asset $asset) => DiceBearArtwork::descriptor($asset->file_path));
+            if ($parts->contains(fn ($part) => $part === null || $part['style'] !== $maker->vector_style)
+                || array_diff($required, $parts->pluck('category')->all())) {
+                throw ValidationException::withMessages(['assets' => ['В наборе отсутствуют обязательные элементы DiceBear.']]);
+            }
+            return;
+        }
         if($assets->isEmpty() || !$assets->contains('category','body') || !$assets->contains('category','face'))
             throw ValidationException::withMessages(['assets'=>['Нужны активные слои body и face.']]);
         $size=null;
@@ -85,6 +103,7 @@ class MakerService {
             if(!$maker->status->canSubmit()) throw new BusinessException('Отправка разрешена только из draft или revision.');
             $this->complete($maker); $maker->status=MakerStatus::Pending; $maker->submitted_at=now();
             $maker->reviewed_by=null; $maker->reviewed_at=null; $maker->review_comment=null; $maker->save();
+            User::whereKey($maker->user_id)->whereNull('creator_since')->update(['creator_since'=>$maker->submitted_at]);
             Log::info('maker.submitted',['maker_id'=>$maker->id,'user_id'=>$maker->user_id]); return $maker;
         });
     }
@@ -107,6 +126,6 @@ class MakerService {
     }
     public function statistics(): array {
         return ['makers_by_status'=>Maker::selectRaw('status, count(*) as total')->groupBy('status')->pluck('total','status'),
-            'users'=>User::count(),'posts'=>\App\Models\Post::count(),'characters'=>\App\Models\Character::count()];
+            'users'=>User::where('email','<>',User::BUILTIN_MAKER_EMAIL)->count(),'posts'=>\App\Models\Post::count(),'characters'=>\App\Models\Character::count()];
     }
 }
